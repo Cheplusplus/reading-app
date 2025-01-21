@@ -1,19 +1,4 @@
 import styles from "./page.module.css";
-function splitAfterLastComma(str: string) {
-  // Find the index of the last comma
-  const lastCommaIndex = str.lastIndexOf(",");
-
-  // If there is no comma, return the whole string as the first element and an empty string as the second
-  if (lastCommaIndex === -1) {
-    return [str, ""];
-  }
-
-  // Split the string at the last comma
-  const beforeComma = str.slice(0, lastCommaIndex + 1);
-  const afterComma = str.slice(lastCommaIndex + 1);
-
-  return [beforeComma, afterComma];
-}
 
 function splitAtMiddleComma(str: string) {
   // Find all the commas in the string
@@ -21,7 +6,7 @@ function splitAtMiddleComma(str: string) {
 
   // If there are no commas or just one comma, return the string as-is
   if (commaIndexes.length === 0) return [str, ""];
-  if (commaIndexes.length === 1) return [str, ""];
+  if (commaIndexes.length === 1) return [str + ".", ""];
 
   // Find the index of the middle comma
   const middleCommaIndex = commaIndexes[Math.floor(commaIndexes.length / 2)];
@@ -30,7 +15,7 @@ function splitAtMiddleComma(str: string) {
   const beforeComma = str.slice(0, middleCommaIndex + 1);
   const afterComma = str.slice(middleCommaIndex + 1);
 
-  return [beforeComma, afterComma];
+  return [beforeComma, afterComma + "."];
 }
 
 function splitParagraphIntoLines(paragraph: string, maxLineLength = 200) {
@@ -49,7 +34,7 @@ function splitParagraphIntoLines(paragraph: string, maxLineLength = 200) {
       // Split the sentence by the middle comma and push each part onto the lines array
       let [firstPart, secondPart] = splitAtMiddleComma(sentence);
       lines.push(firstPart);
-      lines.push(secondPart + ".");
+      if (secondPart !== "") lines.push(secondPart);
     } else {
       // Push the current line to the lines array
       lines.push(sentence + ".");
@@ -62,7 +47,7 @@ function splitParagraphIntoLines(paragraph: string, maxLineLength = 200) {
 // Example usage:
 let paragraph =
   "It could not have been ten seconds, and yet it seemed a long time that their hands were clasped together.  He had time to learn every detail of her hand.  He explored the long fingers, the shapely nails, the work-hardened palm with its row of callouses, the smooth flesh under the wrist.  Merely from feeling it he would have known it by sight.  In the same instant it occurred to him that he did not know what colour the girl's eyes were.  They were probably brown, but people with dark hair sometimes had blue eyes.  To turn his head and look at her would have been inconceivable folly.  With hands locked together, invisible among the press of bodies, they stared steadily in front of them, and instead of the eyes of the girl, the eyes of the aged prisoner gazed mournfully at Winston out of nests of hair.";
-let lines = splitParagraphIntoLines(paragraph, 180); // Max line length set to 50
+let lines = splitParagraphIntoLines(paragraph, 100); // Max line length set to 50
 
 export default function Home() {
   return (
