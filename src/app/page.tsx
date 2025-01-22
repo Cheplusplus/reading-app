@@ -1,4 +1,6 @@
+"use client";
 import styles from "./page.module.css";
+import { useState } from "react";
 
 function splitAtMiddleComma(str: string) {
   // Find all the commas in the string
@@ -45,17 +47,53 @@ function splitParagraphIntoLines(paragraph: string, maxLineLength = 200) {
 }
 
 // Example usage:
-let paragraph =
-  "It could not have been ten seconds, and yet it seemed a long time that their hands were clasped together.  He had time to learn every detail of her hand.  He explored the long fingers, the shapely nails, the work-hardened palm with its row of callouses, the smooth flesh under the wrist.  Merely from feeling it he would have known it by sight.  In the same instant it occurred to him that he did not know what colour the girl's eyes were.  They were probably brown, but people with dark hair sometimes had blue eyes.  To turn his head and look at her would have been inconceivable folly.  With hands locked together, invisible among the press of bodies, they stared steadily in front of them, and instead of the eyes of the girl, the eyes of the aged prisoner gazed mournfully at Winston out of nests of hair.";
+let paragraph = `Soon we were hemmed in with trees, which in places arched right over the roadway till we passed as through a tunnel; and again great frowning rocks guarded us boldly on either side.  Though we were in shelter, we could hear the rising wind, for it moaned and whistled through the rocks, and the branches of the trees crashed together as we swept along.  It grew colder and colder still, and fine, powdery snow began to fall, so that soon we and all around us were covered with a white blanket.  The keen wind still carried the howling of the dogs, though this grew fainter as we went on our way.  The baying of the wolves sounded nearer and nearer, as though they were closing round on us from every side.  I grew dreadfully afraid, and the horses shared my fear.  The driver, however, was not in the least disturbed; he kept turning his head to left and right, but I could not see anything through the darkness.`;
 let lines = splitParagraphIntoLines(paragraph, 100); // Max line length set to 50
 
 export default function Home() {
+  let [position, setPosition] = useState(50);
+  let [wordsPerMinute, setWPM] = useState(500);
+  let [lineNumber, setLineNumber] = useState(0);
+
+  let nextLine = () => {
+    console.log(lineNumber);
+    const int = setInterval(() => setPosition((current) => current - wordsPerMinute / 2000), 1);
+    let len = lines[lineNumber].length;
+    let res = new Promise((res) =>
+      setTimeout(() => {
+        clearInterval(int);
+        setLineNumber((current) => current + 1);
+        setPosition(50);
+        res("");
+      }, (len / wordsPerMinute) * 60 * 180)
+    );
+    return res;
+  };
+
+  let readLines = async () => {
+    while (lineNumber < lines.length - 1) {
+      let t = nextLine();
+
+      await t;
+      lineNumber++;
+      console.log(t);
+    }
+  };
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        {lines.map((element) => (
-          <p>{element}</p>
-        ))}
+        {/* {lines.map((element, index) => (
+          <p key={index} style={{ marginLeft: `${position}px` }}>
+            {element}
+          </p>
+        ))} */}
+
+        <p className={styles.line} style={{ left: `${position}%` }}>
+          {lines[lineNumber]}
+        </p>
+
+        <button onClick={() => readLines()}>Test</button>
       </main>
       <footer className={styles.footer}></footer>
     </div>
