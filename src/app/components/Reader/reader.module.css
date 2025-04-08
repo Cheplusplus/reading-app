@@ -1,0 +1,40 @@
+.line {
+  font-size: 4rem;
+  text-align: center;
+  height: 500px;
+}
+.btn {
+  padding: 0.1rem 1rem;
+  font-size: 2em;
+}
+.btn:hover {
+  background-color: lightgreen;
+}
+
+.labl {
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 75px;
+}
+.inpt {
+  margin-left: 10px;
+  font-size: 1.5em;
+  padding-left: 10px;
+  width: 100px;
+}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.hide {
+  display: none;
+}

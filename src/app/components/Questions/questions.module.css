@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.question {
+  font-size: 3rem;
+  margin: 0 auto;
+}
+
+.answer {
+  font-size: 1.5rem;
+}
+
+.answer_container {
+  width: 100%;
+  border: solid white;
+  padding: 1rem;
+  margin-top: 0.5em;
+  cursor: pointer;
+  max-width: 70%;
+  margin: auto;
+}
+
+.answer_container:hover {
+  border-color: lightgreen;
+}

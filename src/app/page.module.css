@@ -105,10 +105,6 @@ a.secondary {
   flex-shrink: 0;
 }
 
-.line {
-  position: absolute;
-}
-
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {

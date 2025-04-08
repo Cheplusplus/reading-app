@@ -1,0 +1,110 @@
+"use client";
+import styles from "./reader.module.css";
+import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
+
+function splitAtMiddleComma(str: string) {
+  // Find all the commas in the string
+  const commaIndexes = [...str.matchAll(/,/g)].map((match) => match.index);
+  // If there are no commas or just one comma, return the string as-is
+  if (commaIndexes.length === 0) return [str, ""];
+  if (commaIndexes.length === 1) return [str + ".", ""];
+  // Find the index of the middle comma
+  const middleCommaIndex = commaIndexes[Math.floor(commaIndexes.length / 2)];
+  // Split the string at the middle comma
+  const beforeComma = str.slice(0, middleCommaIndex + 1);
+  const afterComma = str.slice(middleCommaIndex + 1);
+  return [beforeComma, afterComma + "."];
+}
+
+function splitParagraphIntoLines(paragraph: string, maxLineLength = 200) {
+  //paragraph = paragraph.replace(/[\r\n]+/g, "\r"); // Replace any newline characters
+  let sentences = paragraph.split("."); // Split the paragraph into sentences
+  let lines: string[] = [];
+  // Loop through each sentence and add it to the current line if it fits
+  sentences.forEach((sentence, index) => {
+    if (sentence.length === 0) return;
+    //Prevent the last '.' being added to the empty space of the paragraph
+    if (index === sentences.length) return;
+    // Check if adding the sentence exceeds the maximum line length
+    if (sentence.length + 1 > maxLineLength) {
+      // Split the sentence by the middle comma and push each part onto the lines array
+      let [firstPart, secondPart] = splitAtMiddleComma(sentence);
+      lines.push(firstPart);
+      if (secondPart !== "") lines.push(secondPart); //If there are no commas make sure the second part is not empty
+    } else {
+      // Push the current line to the lines array if it doesn't end with ?
+      lines.push(sentence.endsWith("?") ? sentence : sentence + ".");
+    }
+  });
+  return lines;
+}
+
+type ReaderProps = {
+  piece: string;
+  setPage: Dispatch<SetStateAction<"reader" | "questions" | "results">>;
+};
+export default function Reader({ piece = "Testing sentence. This is a sentence. How?", setPage }: ReaderProps) {
+  let [lineNumber, setLineNumber] = useState<number>(0);
+  let [wordsPerMinute, setWPM] = useState<number>(300);
+  let maxLineLength: number = 100; // For tuning: MIGHT NEED THIS LATER FOR ADJUSTING FOR SCREEN SIZES
+  let lines: string[] = splitParagraphIntoLines(piece, maxLineLength);
+  let [hideControls, setHideControls] = useState<boolean>(false);
+
+  /**
+   * Set the duration and speed for the current line to scroll across the screen and reset the state for the next line.
+   * @returns {Promise<string>} res
+   */
+  const readLine = (): Promise<string> => {
+    const words = lines[lineNumber].trimStart().split(" ").length;
+    return new Promise<string>((res) => {
+      setTimeout(() => {
+        res("");
+        setLineNumber(lineNumber + 1);
+      }, (words / wordsPerMinute) * 60 * 1000); // The duration the line should scroll for.
+    });
+  };
+
+  /**
+   * Start reading the next line after each line is completed.
+   */
+  const startReading = async () => {
+    while (lineNumber < lines.length) {
+      await readLine();
+      lineNumber += 1;
+    }
+    setPage("questions");
+  };
+
+  return (
+    <>
+      <p className={styles.line}>{lines[lineNumber]}</p>
+      <div className={hideControls ? styles.hide : styles.controls}>
+        <button
+          className={styles.btn}
+          onClick={() => {
+            setHideControls(true);
+            startReading();
+          }}
+        >
+          Start Reading
+        </button>
+        <label className={styles.labl}>
+          Reading Speed (WPM):
+          <input
+            className={styles.inpt}
+            value={wordsPerMinute}
+            onInput={(e) => {
+              const value = Number.parseInt(e.currentTarget.value);
+              if (typeof value !== "number") {
+                e.currentTarget.value = "";
+                return;
+              }
+              setWPM(value);
+            }}
+          ></input>
+        </label>
+      </div>
+    </>
+  );
+}
