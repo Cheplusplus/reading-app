@@ -31,6 +31,9 @@
   margin: 0 auto;
   padding: 2rem 1.5rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--surface);
+  border-radius: 15px;
+  margin-top: 1vh;
 }
 
 .header {
