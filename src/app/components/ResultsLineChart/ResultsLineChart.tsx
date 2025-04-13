@@ -3,16 +3,17 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 import { Line } from "react-chartjs-2";
 import { getUserAverages } from "./getUserAverages";
 import styles from "./resultsLineChart.module.css";
-
-ChartJS.register(CategoryScale, LineElement, LinearScale, PointElement, Title, Tooltip, Legend, Filler);
-ChartJS.defaults.backgroundColor = "#000";
-ChartJS.defaults.borderColor = "#ffffff49";
-ChartJS.defaults.color = "#11e30a";
+import { useTheme } from "next-themes";
 
 type ResultsLineChartProps = {
   user: User;
 };
 const ResultsLineChart = ({ user }: ResultsLineChartProps) => {
+  const { theme } = useTheme();
+  ChartJS.register(CategoryScale, LineElement, LinearScale, PointElement, Title, Tooltip, Legend, Filler);
+  ChartJS.defaults.backgroundColor = theme === "dark" ? "#e0e0e0" : "#1e1e1e";
+  ChartJS.defaults.borderColor = theme === "dark" ? "#e0e0e0" : "#1e1e1e";
+  ChartJS.defaults.color = "#11e30a";
   const { userSpeeds, userScores } = getUserAverages(user);
 
   return (

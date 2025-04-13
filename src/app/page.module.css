@@ -4,14 +4,12 @@
   flex-direction: column;
   margin: auto;
   width: 100%;
-  color: antiquewhite;
-  background: rgb(55, 53, 53) !important;
+  background: var(--background);
   min-height: 100vh;
 }
 
 .banner {
-  /* height: 10vh; */
-  background-color: rgb(21, 23, 25);
+  background-color: var(--foreground);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,25 +18,23 @@
 }
 
 .nav_list {
-  color: antiquewhite;
   display: flex;
   flex-direction: row;
   list-style-type: none;
   justify-content: space-evenly;
   font-size: 0.7vw;
-  filter: drop-shadow(2px 3px 4px rgba(255, 255, 255, 1));
   width: 20vw;
+  color: var(--text-muted);
 }
 .container {
   max-width: 960px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-  color: antiquewhite;
 }
 
 .header {
-  background-color: rgb(21, 23, 25);
+  background-color: var(--foreground);
   text-align: center;
   display: flex;
   flex-direction: row;
@@ -56,7 +52,6 @@
 
 .subtitle {
   font-size: 1.25rem;
-  color: #6b7280; /* gray-500 */
   max-width: 700px;
   margin: 0 auto;
 }
@@ -69,20 +64,17 @@
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #eaedf2; /* gray-900 */
 }
 
 .section p {
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 1rem;
-  color: #c0c5cb; /* gray-700 */
 }
 
 .section ul {
   list-style: disc;
   padding-left: 1.5rem;
-  color: #bdc0c6;
 }
 
 .section li {
@@ -91,16 +83,11 @@
   margin-bottom: 0.75rem;
 }
 
-.section li strong {
-  color: #e1e4ea;
-}
-
 .start_btn {
   font-size: 1vh;
   width: 10vh;
   height: 4vh;
   background-color: green;
-  color: whitesmoke;
   border-radius: 15px;
   cursor: pointer;
 }
@@ -108,7 +95,6 @@
 .start_btn:hover {
   background-color: rgb(25, 171, 25);
   filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 2));
-  color: white;
 }
 
 .start_btn_div {
@@ -133,8 +119,8 @@
 .logo {
   width: 7vh;
   height: 7vh;
-  -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
-  filter: invert(100%);
+  -webkit-filter: invert(var(--invert)); /* safari 6.0 - 9.0 */
+  filter: invert(var(--invert));
   margin: 1vh;
 }
 

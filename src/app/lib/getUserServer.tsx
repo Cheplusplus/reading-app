@@ -19,7 +19,6 @@ export const getUser = async () => {
         data: {
           username: session.user.nickname,
           email: session.user.email,
-          stats: [],
         },
       });
     }

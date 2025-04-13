@@ -47,7 +47,7 @@ const milestones = [
   {
     title: "Styling and Themes",
     description: "Implement consistent styling and support for light/dark themes.",
-    completed: false,
+    completed: true,
   },
   {
     title: "Challenge Difficulty",
