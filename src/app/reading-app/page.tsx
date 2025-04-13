@@ -128,7 +128,6 @@ Task:
   };
 
   const user: User | null = await getUser();
-  console.log(user);
 
   if (user === null) redirect("/api/auth/login");
   return (
