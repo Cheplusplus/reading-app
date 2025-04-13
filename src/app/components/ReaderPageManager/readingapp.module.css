@@ -1,0 +1,24 @@
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: fit-content;
+  max-width: 1600px;
+  margin: auto;
+  overflow: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  padding-bottom: 10vw;
+}
+
+.center::-webkit-scrollbar {
+  display: none;
+}
+
+.btn {
+  width: 500px;
+  height: 500px;
+  background-color: red;
+  position: absolute;
+  top: 0;
+}

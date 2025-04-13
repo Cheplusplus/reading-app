@@ -1,0 +1,18 @@
+.btn {
+  width: 8vw;
+  height: 2vw;
+  background-color: red;
+  cursor: pointer;
+  font-size: 0.7vw;
+}
+
+.btn:hover {
+  background-color: rgb(193, 15, 15);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 70%;
+}

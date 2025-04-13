@@ -7,6 +7,10 @@
 .question {
   font-size: 3rem;
   margin: 0 auto;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .answer {
@@ -15,7 +19,7 @@
 
 .answer_container {
   width: 100%;
-  border: solid white;
+  border: solid rgb(122, 114, 114);
   padding: 1rem;
   margin-top: 0.5em;
   cursor: pointer;
@@ -25,4 +29,9 @@
 
 .answer_container:hover {
   border-color: lightgreen;
+}
+
+.center {
+  padding-top: 10vw;
+  height: 100vh;
 }

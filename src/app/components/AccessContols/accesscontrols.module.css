@@ -1,0 +1,11 @@
+.img {
+  border-radius: 50%;
+  width: 20%;
+  margin: 0 1vw;
+}
+
+.li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

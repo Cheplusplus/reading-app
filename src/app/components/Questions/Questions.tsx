@@ -4,25 +4,24 @@ import { Dispatch, useEffect, useState, SetStateAction } from "react";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 type QuestionsProps = {
-  questions: string[];
-  answers: string[][];
+  challenge: Challenge;
   setUserAnswers: Dispatch<SetStateAction<number[]>>;
   setPage: Dispatch<SetStateAction<"reader" | "questions" | "results">>;
 };
-const Questions = ({ questions, answers, setUserAnswers, setPage }: QuestionsProps) => {
+const Questions = ({ challenge, setUserAnswers, setPage }: QuestionsProps) => {
   const [questionIndex, setQuestionIndex] = useState<number>(0);
 
   useEffect(() => {
-    if (questionIndex >= questions.length) {
+    if (questionIndex >= challenge.questions.length) {
       setPage("results");
     }
   }, [questionIndex]);
 
   return (
-    <>
-      <p className={styles.question}>{questions[questionIndex]}</p>
+    <div className={styles.center}>
+      <p className={styles.question}>{challenge.questions[questionIndex]}</p>
       <div>
-        {answers[questionIndex]?.map((answer, index) => (
+        {challenge.answers[questionIndex]?.map((answer, index) => (
           <div
             key={index}
             className={styles.answer_container}
@@ -37,7 +36,7 @@ const Questions = ({ questions, answers, setUserAnswers, setPage }: QuestionsPro
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,10 @@
+.chart {
+  width: 500px;
+  height: 500px;
+}
+
+.chart_container {
+  width: 60vw;
+  height: 25vw;
+  margin: auto;
+}

@@ -2,6 +2,7 @@
 import styles from "./reader.module.css";
 import { useEffect, useState } from "react";
 import { Dispatch, SetStateAction } from "react";
+import Spinner from "../Spinner/spinner";
 
 function splitAtMiddleComma(str: string) {
   // Find all the commas in the string
@@ -18,7 +19,7 @@ function splitAtMiddleComma(str: string) {
 }
 
 function splitParagraphIntoLines(paragraph: string, maxLineLength = 200) {
-  //paragraph = paragraph.replace(/[\r\n]+/g, "\r"); // Replace any newline characters
+  // paragraph = paragraph.replace(/[\r\n]+/g, "\r"); // Replace any newline characters
   let sentences = paragraph.split("."); // Split the paragraph into sentences
   let lines: string[] = [];
   // Loop through each sentence and add it to the current line if it fits
@@ -43,10 +44,12 @@ function splitParagraphIntoLines(paragraph: string, maxLineLength = 200) {
 type ReaderProps = {
   piece: string;
   setPage: Dispatch<SetStateAction<"reader" | "questions" | "results">>;
+  wordsPerMinute: number;
+  setWPM: Dispatch<SetStateAction<number>>;
+  loading: boolean;
 };
-export default function Reader({ piece = "Testing sentence. This is a sentence. How?", setPage }: ReaderProps) {
+export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading }: ReaderProps) {
   let [lineNumber, setLineNumber] = useState<number>(0);
-  let [wordsPerMinute, setWPM] = useState<number>(300);
   let maxLineLength: number = 100; // For tuning: MIGHT NEED THIS LATER FOR ADJUSTING FOR SCREEN SIZES
   let lines: string[] = splitParagraphIntoLines(piece, maxLineLength);
   let [hideControls, setHideControls] = useState<boolean>(false);
@@ -57,11 +60,15 @@ export default function Reader({ piece = "Testing sentence. This is a sentence. 
    */
   const readLine = (): Promise<string> => {
     const words = lines[lineNumber].trimStart().split(" ").length;
+    let duration = (words / wordsPerMinute) * 60 * 1000;
+    if (duration < 400) duration = 400;
+    const now = Date.now();
     return new Promise<string>((res) => {
       setTimeout(() => {
         res("");
         setLineNumber(lineNumber + 1);
-      }, (words / wordsPerMinute) * 60 * 1000); // The duration the line should scroll for.
+        console.log(duration);
+      }, duration); // The duration the line should scroll for.
     });
   };
 
@@ -77,10 +84,19 @@ export default function Reader({ piece = "Testing sentence. This is a sentence. 
   };
 
   return (
-    <>
-      <p className={styles.line}>{lines[lineNumber]}</p>
+    <div className={styles.center}>
+      {loading ? (
+        <div className={styles.loading_container}>
+          <Spinner />
+          <p className={styles.spinner}>Generating New Challenge...</p>
+          <p>Please be patient</p>
+        </div>
+      ) : (
+        <p className={styles.line}>{lines[lineNumber]}</p>
+      )}
       <div className={hideControls ? styles.hide : styles.controls}>
         <button
+          disabled={loading}
           className={styles.btn}
           onClick={() => {
             setHideControls(true);
@@ -105,6 +121,6 @@ export default function Reader({ piece = "Testing sentence. This is a sentence. 
           ></input>
         </label>
       </div>
-    </>
+    </div>
   );
 }

@@ -1,5 +1,5 @@
 .line {
-  font-size: 4rem;
+  font-size: 2vw;
   text-align: center;
   height: 500px;
 }
@@ -28,13 +28,22 @@
   width: 100px;
 }
 .center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  padding-top: 10vw;
+  height: 100vh;
 }
 .hide {
   display: none;
+}
+
+.loading_container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 500px;
+}
+
+.spinner {
+  margin-top: 16px;
 }
