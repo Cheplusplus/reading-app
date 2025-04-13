@@ -1,6 +1,6 @@
 "use client";
 import styles from "./reader.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 import Spinner from "../Spinner/spinner";
 
@@ -20,8 +20,8 @@ function splitAtMiddleComma(str: string) {
 
 function splitParagraphIntoLines(paragraph: string, maxLineLength = 200) {
   // paragraph = paragraph.replace(/[\r\n]+/g, "\r"); // Replace any newline characters
-  let sentences = paragraph.split("."); // Split the paragraph into sentences
-  let lines: string[] = [];
+  const sentences = paragraph.split("."); // Split the paragraph into sentences
+  const lines: string[] = [];
   // Loop through each sentence and add it to the current line if it fits
   sentences.forEach((sentence, index) => {
     if (sentence.length === 0) return;
@@ -30,7 +30,7 @@ function splitParagraphIntoLines(paragraph: string, maxLineLength = 200) {
     // Check if adding the sentence exceeds the maximum line length
     if (sentence.length + 1 > maxLineLength) {
       // Split the sentence by the middle comma and push each part onto the lines array
-      let [firstPart, secondPart] = splitAtMiddleComma(sentence);
+      const [firstPart, secondPart] = splitAtMiddleComma(sentence);
       lines.push(firstPart);
       if (secondPart !== "") lines.push(secondPart); //If there are no commas make sure the second part is not empty
     } else {
@@ -49,10 +49,12 @@ type ReaderProps = {
   loading: boolean;
 };
 export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading }: ReaderProps) {
-  let [lineNumber, setLineNumber] = useState<number>(0);
-  let maxLineLength: number = 100; // For tuning: MIGHT NEED THIS LATER FOR ADJUSTING FOR SCREEN SIZES
-  let lines: string[] = splitParagraphIntoLines(piece, maxLineLength);
-  let [hideControls, setHideControls] = useState<boolean>(false);
+  const state = useState<number>(0);
+  let lineNumber = state[0];
+  const setLineNumber = state[1];
+  const maxLineLength: number = 100; // For tuning: MIGHT NEED THIS LATER FOR ADJUSTING FOR SCREEN SIZES
+  const lines: string[] = splitParagraphIntoLines(piece, maxLineLength);
+  const [hideControls, setHideControls] = useState<boolean>(false);
 
   /**
    * Set the duration and speed for the current line to scroll across the screen and reset the state for the next line.
@@ -62,7 +64,6 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
     const words = lines[lineNumber].trimStart().split(" ").length;
     let duration = (words / wordsPerMinute) * 60 * 1000;
     if (duration < 400) duration = 400;
-    const now = Date.now();
     return new Promise<string>((res) => {
       setTimeout(() => {
         res("");

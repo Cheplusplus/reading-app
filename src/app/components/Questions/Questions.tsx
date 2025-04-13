@@ -1,7 +1,6 @@
 "use client";
 import styles from "./questions.module.css";
 import { Dispatch, useEffect, useState, SetStateAction } from "react";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 type QuestionsProps = {
   challenge: Challenge;

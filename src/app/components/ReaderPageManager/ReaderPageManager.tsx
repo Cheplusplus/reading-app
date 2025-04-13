@@ -8,7 +8,7 @@ import styles from "./readingapp.module.css";
 type ReaderPageManagerProps = {
   getChallenge: Function;
   user: User;
-  saveResults: Function;
+  saveResults: (stats: Stats) => void;
 };
 
 const ReaderPageManager = ({ getChallenge, user, saveResults }: ReaderPageManagerProps) => {
