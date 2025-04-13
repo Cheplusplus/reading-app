@@ -8,7 +8,7 @@ declare global {
   }
 
   interface User {
-    id: any;
+    id: number;
     email: string;
     username: string;
     stats: Stats[];
@@ -17,7 +17,7 @@ declare global {
   interface Stats {
     speed: number;
     score: number;
-    userID: any;
+    userID: number;
   }
 }
 export {};
