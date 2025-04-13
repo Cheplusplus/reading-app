@@ -20,7 +20,7 @@ type CardProps = {
   children: React.JSX.Element | React.JSX.Element[];
   className?: string;
 };
-export const Card = ({ children, className = "" }: CardProps) => {
+const Card = ({ children, className = "" }: CardProps) => {
   return <div className={`${styles.card} ${className}`}>{children}</div>;
 };
 
@@ -29,7 +29,7 @@ type CardContentProps = {
   children: React.JSX.Element | React.JSX.Element[];
   className?: string;
 };
-export const CardContent = ({ children, className = "" }: CardContentProps) => {
+const CardContent = ({ children, className = "" }: CardContentProps) => {
   return <div className={`${styles["card-content"]} ${className}`}>{children}</div>;
 };
 
