@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import { ChatCompletionMessageParam, ChatModel } from "openai/resources.mjs";
+import { ChatModel } from "openai/resources.mjs";
 
 export const getChatCompletion = async (input: string, model: ChatModel = "gpt-4o-mini", role: any = "user") => {
   if (role !== "function" || role !== "developer" || role !== "system" || role !== "user" || role !== "assistant" || role !== "tool") {

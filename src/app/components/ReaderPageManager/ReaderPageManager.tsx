@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import styles from "./readingapp.module.css";
 
 type ReaderPageManagerProps = {
-  getChallenge: Function;
+  getChallenge: () => Promise<Challenge | undefined>;
   user: User;
   saveResults: (stats: Stats) => void;
 };
@@ -33,6 +33,7 @@ const ReaderPageManager = ({ getChallenge, user, saveResults }: ReaderPageManage
   useEffect(() => {
     const asyncEffect = async () => {
       const challenge = await getChallenge();
+      if (!challenge) return;
       setChallenge(challenge);
       setLoading(false);
     };

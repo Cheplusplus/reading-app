@@ -3,7 +3,7 @@ import styles from "./resetStatsButton.module.css";
 
 type ResetStatsButtonProps = {
   user: User;
-  handleReset: Function;
+  handleReset: (user: User) => void;
 };
 const ResetStatsButton = ({ user, handleReset }: ResetStatsButtonProps) => {
   return (

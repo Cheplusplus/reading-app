@@ -2,7 +2,6 @@ import prisma from "./prisma";
 import { getSession } from "@auth0/nextjs-auth0";
 
 export const getUser = async () => {
-  //@ts-ignore
   const session = await getSession();
   let user: User;
   if (session) {

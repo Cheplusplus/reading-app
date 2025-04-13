@@ -1,5 +1,4 @@
 import styles from "./results.module.css";
-import { Line } from "react-chartjs-2";
 import styles2 from "../../page.module.css";
 import { getUserAverages } from "../ResultsLineChart/getUserAverages";
 import ResultsLineChart from "../ResultsLineChart/ResultsLineChart";
