@@ -38,7 +38,7 @@ const Results = ({ results, user, challenge, userAnswers }: ResultsProps) => {
       </div>
 
       <div className={styles.info_container}>
-        <h1 className={styles.info}>Total Completed: {user.stats.length - 1}</h1>
+        <h1 className={styles.info}>Total Completed: {user.stats.length}</h1>
         <h1 className={styles.info}>
           Last Score: <span className={results.score > avgScoreAtCurrentSpeed ? styles.green : undefined}>{results.score}%</span> @ {results.speed}wpm
         </h1>
