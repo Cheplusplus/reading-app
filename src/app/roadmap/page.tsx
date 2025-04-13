@@ -7,7 +7,7 @@ type ProgressProps = {
   value: number;
   className?: string;
 };
-export const Progress = ({ value, className = "" }: ProgressProps) => {
+const Progress = ({ value, className = "" }: ProgressProps) => {
   return (
     <div className={`${styles["progress-bar-container"]} ${className}`}>
       <div className={styles["progress-bar-fill"]} style={{ width: `${value}%` }}></div>
