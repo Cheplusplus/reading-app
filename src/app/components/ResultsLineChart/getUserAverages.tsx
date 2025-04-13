@@ -1,4 +1,5 @@
 export const getUserAverages = (user: User) => {
+  if (!user.stats) return { userSpeeds: [], userScores: [] };
   const userSpeeds = user.stats
     .reduce((acc: number[], current) => {
       if (!acc.includes(current.speed)) {

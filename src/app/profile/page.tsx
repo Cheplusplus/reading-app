@@ -20,6 +20,7 @@ const handleReset = async (user: User) => {
 const page = async () => {
   const user: User | null = await getUser();
   if (user === null) redirect("/api/auth/login");
+  console.log(user);
   return (
     <div className={styles.profile_page}>
       <ResultsLineChart user={user} />
