@@ -49,7 +49,7 @@ function rebalanceAnswersIfNeeded(qaObj: Challenge) {
 }
 
 const storyGenres = [
-  "Greek Mythology",
+  "Great Women in History",
   "Norse Mythology",
   "Ancient African Mythology",
   "Ancient Egyptian Mythology",
@@ -65,6 +65,7 @@ const storyGenres = [
   "Inventions That Changed the World",
   "Historical Events",
   "World War I or World War II",
+  "Greek Mythology",
   "The Great Empires of History",
   "Explorers and Great Expeditions",
   "The Space Race",
@@ -72,7 +73,6 @@ const storyGenres = [
   "Keeping Your Body and Mind Healthy",
   "The Human Brain and How It Works",
   "The Science of Emotions",
-  "Great Women in History",
   "Medieval Times and the Age of Castles",
   "Folktales and Storytelling Around the World",
 ];
