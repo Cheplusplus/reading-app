@@ -113,8 +113,8 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
             value={wordsPerMinute}
             onInput={(e) => {
               const value = Number.parseInt(e.currentTarget.value);
-              if (typeof value !== "number") {
-                e.currentTarget.value = "";
+              if (Number.isNaN(value)) {
+                setWPM(0);
                 return;
               }
               setWPM(value);
