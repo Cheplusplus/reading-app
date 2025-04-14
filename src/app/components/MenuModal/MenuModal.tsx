@@ -1,9 +1,7 @@
 "use client";
-import Image from "next/image";
 import styles from "./menumodal.module.css";
 import ToggleThemeButton from "../ToogleTheme/ToggleThemeButton";
 import AccessControls from "../AccessContols/AccessControls";
-import logo from "../../../../public/open-book-with-brain-emerging-from-the-pages.svg";
 import "material-symbols/outlined.css";
 import { Dispatch, SetStateAction } from "react";
 
