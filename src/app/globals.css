@@ -79,3 +79,11 @@ a {
   background-color: rgba(0, 0, 0, 0);
   border: 0;
 }
+
+button,
+nav,
+img {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
