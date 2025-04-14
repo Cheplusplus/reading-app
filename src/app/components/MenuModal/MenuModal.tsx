@@ -30,6 +30,9 @@ const MenuModal = ({ state, setState }: MenuModalProps) => {
             <a href="/roadmap">Roadmap</a>
           </li>
           <AccessControls toggleImage={false} />
+          <li className={styles.li}>
+            <a href="/profile">Profile</a>
+          </li>
         </ul>
       </nav>
     </div>
