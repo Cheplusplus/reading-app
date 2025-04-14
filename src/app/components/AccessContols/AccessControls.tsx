@@ -2,12 +2,15 @@
 import { useUser } from "@auth0/nextjs-auth0/client";
 import styles from "./accesscontrols.module.css";
 
-const AccessControls = () => {
+type AccessControlsProps = {
+  toggleImage: boolean;
+};
+const AccessControls = ({ toggleImage }: AccessControlsProps) => {
   const user = useUser();
   return (
     <li className={styles.li}>
       {user.user ? <a href="/api/auth/logout">Logout</a> : <a href="/api/auth/login">Login</a>}
-      {user.user ? (
+      {user.user && toggleImage ? (
         <a href="/profile">
           <img className={styles.img} src={user.user.picture || ""} />
         </a>

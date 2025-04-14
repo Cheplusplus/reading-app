@@ -1,0 +1,31 @@
+.menu_container {
+  padding-top: 5rem;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--accent);
+}
+
+.logo {
+  width: 20vh;
+  height: 20vh;
+  -webkit-filter: invert(var(--invert)); /* safari 6.0 - 9.0 */
+  filter: invert(var(--invert));
+  margin: 1vh;
+}
+
+.nav_list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  justify-content: space-evenly;
+  font-size: clamp(1.5rem, 1vw + 0.2rem, 1.5rem);
+  color: var(--text-muted);
+  height: 30vh;
+}

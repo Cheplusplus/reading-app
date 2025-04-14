@@ -1,9 +1,9 @@
 .btn {
-  width: 8vw;
-  height: 2vw;
+  width: clamp(150px, 10vw, 10vw);
+  height: clamp(50px, 3vw, 70vw);
   background-color: red;
   cursor: pointer;
-  font-size: 0.7vw;
+  font-size: clamp(0.2rem, 2vw + 0.2rem, 1.5rem);
 }
 
 .btn:hover {
@@ -13,6 +13,6 @@
 .container {
   display: flex;
   align-items: center;
-  justify-content: right;
-  width: 70%;
+  justify-content: center;
+  max-width: 960px;
 }

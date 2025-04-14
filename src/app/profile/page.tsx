@@ -23,7 +23,7 @@ const page = async () => {
   console.log(user);
   return (
     <div className={styles.profile_page}>
-      <h2>Total Completed: {user.stats.length}</h2>
+      <h2 className={styles.total}>Total Completed: {user.stats.length}</h2>
       <ResultsLineChart user={user} />
       <ResetStatsButton user={user} handleReset={handleReset} />
     </div>

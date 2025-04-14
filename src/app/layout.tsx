@@ -6,6 +6,8 @@ import Image from "next/image";
 import logo from "../../public/open-book-with-brain-emerging-from-the-pages.svg";
 import { ThemeProvider } from "./components/ThemeProvider/ThemeProver";
 import ToggleThemeButton from "./components/ToogleTheme/ToggleThemeButton";
+import MenuButton from "./components/MenuButton/MenuButton";
+import MenuModal from "./components/MenuModal/MenuModal";
 
 export const metadata = {
   title: "Read & Test | Interactive Reading Comprehension",
@@ -53,6 +55,7 @@ export default function RootLayout({
             <header className={styles.header}>
               <Image src={logo} alt="Logo" className={styles.logo} />
               <nav>
+                <MenuButton />
                 <ul className={styles.nav_list}>
                   <li className={styles.li}>
                     <ToggleThemeButton />
@@ -63,7 +66,7 @@ export default function RootLayout({
                   <li className={styles.li}>
                     <a href="/roadmap">Roadmap</a>
                   </li>
-                  <AccessControls />
+                  <AccessControls toggleImage={true} />
                 </ul>
               </nav>
             </header>
