@@ -7,7 +7,7 @@ const page = async () => {
     <div className={styles.container}>
       {/* Header Section */}
       <header className={styles.banner}>
-        <h1 className={styles.title}>AI Reading App</h1>
+        <h1 className={styles.title}>ZapRead</h1>
         <p className={styles.subtitle}>Enhance your reading comprehension with AI-generated stories and questions!</p>
       </header>
 

@@ -7,26 +7,25 @@ import logo from "../../public/open-book-with-brain-emerging-from-the-pages.svg"
 import { ThemeProvider } from "./components/ThemeProvider/ThemeProver";
 import ToggleThemeButton from "./components/ToogleTheme/ToggleThemeButton";
 import MenuButton from "./components/MenuButton/MenuButton";
-import MenuModal from "./components/MenuModal/MenuModal";
 import Footer from "./components/Footer/Footer";
 
 export const metadata = {
-  title: "Read & Test | Interactive Reading Comprehension",
+  title: "ZapRead | Interactive Reading Comprehension",
   description: "Generate high-quality, fact-based stories and test your understanding with randomized multiple-choice questions.",
   keywords: ["reading comprehension", "education", "interactive quiz", "stories", "learning", "javascript quiz format", "true stories", "multiple choice"],
-  authors: [{ name: "Your App Name", url: "https://yourdomain.com" }],
-  creator: "Your App Name",
+  authors: [{ name: "ZapRead", url: "https://zapread.online" }],
+  creator: "Che Overmeyer",
   openGraph: {
-    title: "Read & Test",
+    title: "ZapRead",
     description: "Read fact-based stories and test your comprehension with randomized multiple-choice quizzes.",
-    url: "https://yourdomain.com",
-    siteName: "Read & Test",
+    url: "https://zapread.online",
+    siteName: "ZapRead",
     images: [
       {
-        url: "https://yourdomain.com/og-image.png", // Replace with your OG image
+        url: "https://zapread.online/_next/static/media/open-book-with-brain-emerging-from-the-pages.d942a82a.svg", // Replace with your OG image
         width: 1200,
         height: 630,
-        alt: "Read & Test preview",
+        alt: "ZapRead preview",
       },
     ],
     locale: "en_US",
@@ -34,12 +33,12 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Read & Test",
+    title: "ZapRead",
     description: "Challenge your reading skills with dynamic quizzes based on real-world stories.",
-    images: ["https://yourdomain.com/og-image.png"], // Replace with your image
-    creator: "@yourtwitterhandle", // Optional
+    images: ["https://zapread.online/_next/static/media/open-book-with-brain-emerging-from-the-pages.d942a82a.svg"], // Replace with your image
+    creator: "Che Overmeyer", // Optional
   },
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://zapread.online"),
   themeColor: "#ffffff", // Adjust for light/dark if needed
 };
 
