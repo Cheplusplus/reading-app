@@ -2,12 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: fit-content;
-  max-width: 1600px;
-  margin: auto;
-  overflow: auto;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  min-height: 100vh;
+  align-items: center;
   padding-bottom: 10vw;
 }
 

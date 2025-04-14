@@ -52,20 +52,20 @@ export default function RootLayout({
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem disableTransitionOnChange>
             <header className={styles.header}>
               <Image src={logo} alt="Logo" className={styles.logo} />
-              <div className={styles.controls}>
-                <ToggleThemeButton />
-                <nav>
-                  <ul className={styles.nav_list}>
-                    <li className={styles.li}>
-                      <a href="/">Home</a>
-                    </li>
-                    <li className={styles.li}>
-                      <a href="/roadmap">Roadmap</a>
-                    </li>
-                    <AccessControls />
-                  </ul>
-                </nav>
-              </div>
+              <nav>
+                <ul className={styles.nav_list}>
+                  <li className={styles.li}>
+                    <ToggleThemeButton />
+                  </li>
+                  <li className={styles.li}>
+                    <a href="/">Home</a>
+                  </li>
+                  <li className={styles.li}>
+                    <a href="/roadmap">Roadmap</a>
+                  </li>
+                  <AccessControls />
+                </ul>
+              </nav>
             </header>
 
             <main className={styles.main}>{children}</main>

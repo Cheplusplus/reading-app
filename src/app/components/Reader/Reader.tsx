@@ -52,7 +52,7 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
   const state = useState<number>(0);
   let lineNumber = state[0];
   const setLineNumber = state[1];
-  const maxLineLength: number = 100; // For tuning: MIGHT NEED THIS LATER FOR ADJUSTING FOR SCREEN SIZES
+  const maxLineLength: number = 2000; // For tuning: MIGHT NEED THIS LATER FOR ADJUSTING FOR SCREEN SIZES
   const lines: string[] = splitParagraphIntoLines(piece, maxLineLength);
   const [hideControls, setHideControls] = useState<boolean>(false);
 

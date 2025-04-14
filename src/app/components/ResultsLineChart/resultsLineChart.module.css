@@ -4,6 +4,7 @@
 }
 
 .chart_container {
+  margin-top: 7vh;
   width: 60vw;
   height: 25vw;
 }
