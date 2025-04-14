@@ -9,10 +9,6 @@
   margin: auto;
 }
 
-.center::-webkit-scrollbar {
-  display: none;
-}
-
 .btn {
   width: 500px;
   height: 500px;

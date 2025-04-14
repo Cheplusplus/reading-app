@@ -41,7 +41,7 @@
 }
 .center {
   padding-top: 10vw;
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
 .hide {
@@ -64,10 +64,13 @@
 @media (max-width: 960px) {
   .controls {
     position: fixed;
-    bottom: 70px;
+    bottom: 10px;
   }
   .line,
   .loading_container {
     margin-top: 25vw;
+  }
+  .center {
+    overflow: hidden;
   }
 }

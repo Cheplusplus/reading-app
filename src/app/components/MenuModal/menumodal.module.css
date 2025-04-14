@@ -28,4 +28,5 @@
   font-size: clamp(1.5rem, 1vw + 0.2rem, 1.5rem);
   color: var(--text-muted);
   height: 30vh;
+  margin-top: 5rem;
 }

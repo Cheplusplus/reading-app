@@ -8,6 +8,7 @@ import { ThemeProvider } from "./components/ThemeProvider/ThemeProver";
 import ToggleThemeButton from "./components/ToogleTheme/ToggleThemeButton";
 import MenuButton from "./components/MenuButton/MenuButton";
 import MenuModal from "./components/MenuModal/MenuModal";
+import Footer from "./components/Footer/Footer";
 
 export const metadata = {
   title: "Read & Test | Interactive Reading Comprehension",
@@ -72,13 +73,9 @@ export default function RootLayout({
             </header>
 
             <main className={styles.main}>{children}</main>
-
-            <footer className={styles.footer}>
-              <p>&copy; {new Date().getFullYear()} AI Reading App. All rights reserved.</p>
-            </footer>
           </ThemeProvider>
         </body>
-
+        <Footer />
         {/* Footer */}
       </UserProvider>
     </html>

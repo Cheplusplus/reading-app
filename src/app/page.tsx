@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./page.module.css";
+import Footer from "./components/Footer/Footer";
 
 const page = async () => {
   return (
