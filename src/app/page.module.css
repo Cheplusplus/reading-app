@@ -17,6 +17,7 @@
   align-items: center;
   padding: 2vh;
   filter: drop-shadow(var(--shadow-md));
+  border-radius: 15px;
 }
 
 .nav_list {
