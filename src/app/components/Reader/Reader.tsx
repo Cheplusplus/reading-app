@@ -98,7 +98,7 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
       <div className={hideControls ? styles.hide : styles.controls}>
         <button
           disabled={loading}
-          className={styles.btn}
+          className={`${styles.btn} ${styles.control}`}
           onClick={() => {
             setHideControls(true);
             startReading();
@@ -106,7 +106,7 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
         >
           Start Reading
         </button>
-        <label className={styles.labl}>
+        <label className={`${styles.labl} ${styles.control}`}>
           Reading Speed (WPM):
           <input
             className={styles.inpt}

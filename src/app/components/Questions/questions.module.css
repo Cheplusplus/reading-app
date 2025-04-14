@@ -28,12 +28,6 @@
   margin: auto;
 }
 
-@media (hover: hover) {
-  .answer_container:hover {
-    border-color: lightgreen;
-  }
-}
-
 .center {
   padding-top: 10vw;
   height: 100vh;
