@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./roadmap.module.css";
 import "material-symbols/outlined.css";
+import Background from "../components/Background/Background";
 
 // Progress Component
 type ProgressProps = {
@@ -81,27 +82,30 @@ const completionPercentage =
 
 export default function RoadmapPage() {
   return (
-    <div className={styles["roadmap-container"]}>
-      <h1 className={styles["roadmap-title"]}>Project Roadmap</h1>
-      <Progress value={completionPercentage} className={styles["roadmap-progress"]} />
+    <>
+      <Background />
+      <div className={styles["roadmap-container"]}>
+        <h1 className={styles["roadmap-title"]}>Project Roadmap</h1>
+        <Progress value={completionPercentage} className={styles["roadmap-progress"]} />
 
-      <div className={styles["milestones-grid"]}>
-        {milestones.map((milestone, index) => (
-          <Card key={index} className={styles["milestone-card"]}>
-            <CardContent>
-              <h2 className={styles["milestone-title"]}>{milestone.title}</h2>
-              <p className={styles["milestone-description"]}>{milestone.description}</p>
-            </CardContent>
-            {milestone.completed ? (
-              <span className="material-symbols-outlined" style={{ color: "white", backgroundColor: "green", borderRadius: "50%", padding: "3px" }}>
-                check
-              </span>
-            ) : (
-              <></>
-            )}
-          </Card>
-        ))}
+        <div className={styles["milestones-grid"]}>
+          {milestones.map((milestone, index) => (
+            <Card key={index} className={styles["milestone-card"]}>
+              <CardContent>
+                <h2 className={styles["milestone-title"]}>{milestone.title}</h2>
+                <p className={styles["milestone-description"]}>{milestone.description}</p>
+              </CardContent>
+              {milestone.completed ? (
+                <span className="material-symbols-outlined" style={{ color: "white", backgroundColor: "green", borderRadius: "50%", padding: "3px" }}>
+                  check
+                </span>
+              ) : (
+                <></>
+              )}
+            </Card>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
