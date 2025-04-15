@@ -3,9 +3,8 @@
 .roadmap-container {
   padding: 24px;
   max-width: 960px;
-  margin: 0 auto;
+  margin: 1rem auto;
   font-family: sans-serif;
-  margin-top: 5vh;
   z-index: 0;
   background-color: var(--surface);
   height: fit-content;
