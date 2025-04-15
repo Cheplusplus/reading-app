@@ -2,7 +2,6 @@ import styles from "./results.module.css";
 import styles2 from "../../page.module.css";
 import { getUserAverages } from "../ResultsLineChart/getUserAverages";
 import ResultsLineChart from "../ResultsLineChart/ResultsLineChart";
-import Background from "../Background/Background";
 
 type ResultsProps = {
   results: Stats;
@@ -32,7 +31,6 @@ const Results = ({ results, user, challenge, userAnswers }: ResultsProps) => {
 
   return (
     <>
-      <Background />
       <div className={styles.page_container}>
         <div className={styles.playagain_container}>
           <a href="/reading-app">

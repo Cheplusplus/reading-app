@@ -4,6 +4,7 @@ import { getUser } from "../lib/getUserServer";
 import styles from "./profile.module.css";
 import ResetStatsButton from "../components/ResetStatsButton/ResetStatsButton";
 import prisma from "../lib/prisma";
+import Background from "../components/Background/Background";
 
 const handleReset = async (user: User) => {
   "use server";
@@ -20,13 +21,15 @@ const handleReset = async (user: User) => {
 const page = async () => {
   const user: User | null = await getUser();
   if (user === null) redirect("/api/auth/login");
-  console.log(user);
   return (
-    <div className={styles.profile_page}>
-      <h2 className={styles.total}>Total Completed: {user.stats.length}</h2>
-      <ResultsLineChart user={user} />
-      <ResetStatsButton user={user} handleReset={handleReset} />
-    </div>
+    <>
+      <Background />
+      <div className={styles.profile_page}>
+        <h2 className={styles.total}>Total Completed: {user.stats.length}</h2>
+        <ResultsLineChart user={user} />
+        <ResetStatsButton user={user} handleReset={handleReset} />
+      </div>
+    </>
   );
 };
 
