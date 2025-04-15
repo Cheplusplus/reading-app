@@ -74,8 +74,9 @@ export default function RootLayout({
 
             <main className={styles.main}>{children}</main>
           </ThemeProvider>
+          <Footer />
         </body>
-        <Footer />
+
         {/* Footer */}
       </UserProvider>
     </html>
