@@ -53,7 +53,7 @@ export default function RootLayout({
       <UserProvider>
         <body>
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem disableTransitionOnChange>
-            <header className={styles.header}>
+            <header tabIndex={-1} className={styles.header}>
               <Image src={logo} alt="Logo" className={styles.logo} />
               <nav>
                 <MenuButton />
