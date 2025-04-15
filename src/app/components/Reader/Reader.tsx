@@ -76,7 +76,13 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
   /**
    * Start reading the next line after each line is completed.
    */
-  const startReading = async () => {};
+  const startReading = async () => {
+    while (lineNumber < lines.length) {
+      await readLine();
+      lineNumber += 1;
+    }
+    setPage("questions");
+  };
 
   return (
     <div className={styles.center}>
