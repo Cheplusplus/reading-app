@@ -18,7 +18,7 @@ const MenuModal = ({ state, setState }: MenuModalProps) => {
 
       <nav>
         <ul className={styles.nav_list}>
-          <li className={styles.li} onClick={() => setState(false)}>
+          <li className={styles.li}>
             <ToggleThemeButton />
           </li>
           <li className={styles.li}>
