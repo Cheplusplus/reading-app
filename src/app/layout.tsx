@@ -8,7 +8,6 @@ import { ThemeProvider } from "./components/ThemeProvider/ThemeProver";
 import ToggleThemeButton from "./components/ToogleTheme/ToggleThemeButton";
 import MenuButton from "./components/MenuButton/MenuButton";
 import Footer from "./components/Footer/Footer";
-import Background from "./components/Background/Background";
 
 export const metadata = {
   title: "ZapRead | Interactive Reading Comprehension",
@@ -40,7 +39,6 @@ export const metadata = {
     creator: "Che Overmeyer", // Optional
   },
   metadataBase: new URL("https://zapread.online"),
-  themeColor: "#ffffff", // Adjust for light/dark if needed
 };
 
 export default function RootLayout({
