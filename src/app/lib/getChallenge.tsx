@@ -154,8 +154,9 @@ export const getChallenge = async (difficulty: "beginner" | "intermediate" | "ex
                         "correctAnswers": [index_of_correct_answer_for_each_question_starting_at_0]
                       }
                       Task:
-                          - Write a high-quality story based on true facts (~500 words) in the genre: ${genre} for a student of ${difficulty} level
-                          - Create 5 to 8 thoughtful and ${difficulty} level multiple-choice questions based only on the content of the story.
+                          - The student you are preparing work for today reads at a ${difficulty} level
+                          - Write a high-quality story based on true facts (~500 words) in the genre: ${genre}
+                          - Create 5 to 8 thoughtful multiple-choice questions based only on the content of the story.
                           - Each question must have 4 possible answers, only one of which is correct.
                           - Ensure the index of each correct answer in the 'answers' array matches the corresponding number in the 'correctAnswers' array.
                           - Randomize the position of the correct answer in each answers array — it should not always be index 0.
