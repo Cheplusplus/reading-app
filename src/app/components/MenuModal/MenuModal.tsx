@@ -4,6 +4,7 @@ import ToggleThemeButton from "../ToogleTheme/ToggleThemeButton";
 import AccessControls from "../AccessContols/AccessControls";
 import "material-symbols/outlined.css";
 import { Dispatch, SetStateAction } from "react";
+import Link from "next/link";
 
 type MenuModalProps = {
   state: boolean;
@@ -25,14 +26,14 @@ const MenuModal = ({ state, setState }: MenuModalProps) => {
             <a href="/">Home</a>
           </li>
           <li className={styles.li}>
-            <a href="/reading-app">Read</a>
+            <Link href="/reading-app">Read</Link>
           </li>
           <li className={styles.li}>
             <a href="/roadmap">Roadmap</a>
           </li>
           <AccessControls toggleImage={false} />
           <li className={styles.li}>
-            <a href="/profile">Profile</a>
+            <Link href="/profile">Profile</Link>
           </li>
         </ul>
       </nav>

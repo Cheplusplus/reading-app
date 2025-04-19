@@ -8,6 +8,7 @@ import { ThemeProvider } from "./components/ThemeProvider/ThemeProver";
 import ToggleThemeButton from "./components/ToogleTheme/ToggleThemeButton";
 import MenuButton from "./components/MenuButton/MenuButton";
 import Footer from "./components/Footer/Footer";
+import Link from "next/link";
 
 export const metadata = {
   title: "ZapRead | Interactive Reading Comprehension",
@@ -63,7 +64,7 @@ export default function RootLayout({
                     <a href="/">Home</a>
                   </li>
                   <li className={styles.li}>
-                    <a href="/reading-app">Read</a>
+                    <Link href="/reading-app">Read</Link>
                   </li>
                   <li className={styles.li}>
                     <a href="/roadmap">Roadmap</a>
