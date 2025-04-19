@@ -53,7 +53,7 @@ const milestones = [
   {
     title: "Challenge Difficulty",
     description: "Add difficulty levels to categorize challenges.",
-    completed: false,
+    completed: true,
   },
   {
     title: "Store Highest Rated Challenges",

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import styles from "./readingapp.module.css";
 
 type ReaderPageManagerProps = {
-  getChallenge: () => Promise<Challenge | undefined>;
+  getChallenge: (difficulty: "easy" | "intermediate" | "challenging") => Promise<Challenge | undefined>;
   user: User;
   saveResults: (stats: Stats) => void;
 };
@@ -17,7 +17,15 @@ const ReaderPageManager = ({ getChallenge, user, saveResults }: ReaderPageManage
   const [userAnswers, setUserAnswers] = useState<number[]>([]);
   const [results, setResults] = useState<Stats>({ score: 0, speed: 0, userID: 2 });
   const [wordsPerMinute, setWPM] = useState<number>(200);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const fetchNewChallenge = async (difficulty: "easy" | "intermediate" | "challenging") => {
+    setLoading(true);
+    const challenge = await getChallenge(difficulty);
+    if (!challenge) return;
+    setChallenge(challenge);
+    setLoading(false);
+  };
 
   useEffect(() => {
     if (userAnswers.length === challenge?.questions.length) {
@@ -31,13 +39,7 @@ const ReaderPageManager = ({ getChallenge, user, saveResults }: ReaderPageManage
   }, [userAnswers]);
 
   useEffect(() => {
-    const asyncEffect = async () => {
-      const challenge = await getChallenge();
-      if (!challenge) return;
-      setChallenge(challenge);
-      setLoading(false);
-    };
-    asyncEffect();
+    // fetchNewChallenge("intermediate");
   }, []);
 
   const checkResults = () => {
@@ -57,7 +59,7 @@ const ReaderPageManager = ({ getChallenge, user, saveResults }: ReaderPageManage
   };
 
   const pages = {
-    reader: <Reader piece={challenge.readingPiece} setPage={setPage} wordsPerMinute={wordsPerMinute} setWPM={setWPM} loading={loading} />,
+    reader: <Reader piece={challenge.readingPiece} setPage={setPage} wordsPerMinute={wordsPerMinute} setWPM={setWPM} loading={loading} fetchNewChallenge={fetchNewChallenge} />,
     questions: <Questions challenge={challenge} setUserAnswers={setUserAnswers} setPage={setPage} />,
     results: <Results results={results} user={user} userAnswers={userAnswers} challenge={challenge} />,
   };
