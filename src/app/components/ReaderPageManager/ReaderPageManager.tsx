@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import styles from "./readingapp.module.css";
 
 type ReaderPageManagerProps = {
-  getChallenge: (difficulty: "easy" | "intermediate" | "challenging") => Promise<Challenge | undefined>;
+  getChallenge: (difficulty: "beginner" | "intermediate" | "expert") => Promise<Challenge | undefined>;
   user: User;
   saveResults: (stats: Stats) => void;
 };
@@ -19,7 +19,7 @@ const ReaderPageManager = ({ getChallenge, user, saveResults }: ReaderPageManage
   const [wordsPerMinute, setWPM] = useState<number>(200);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const fetchNewChallenge = async (difficulty: "easy" | "intermediate" | "challenging") => {
+  const fetchNewChallenge = async (difficulty: "beginner" | "intermediate" | "expert") => {
     setLoading(true);
     const challenge = await getChallenge(difficulty);
     if (!challenge) return;
