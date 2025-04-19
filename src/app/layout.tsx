@@ -63,6 +63,9 @@ export default function RootLayout({
                     <a href="/">Home</a>
                   </li>
                   <li className={styles.li}>
+                    <a href="/reading-app">Read</a>
+                  </li>
+                  <li className={styles.li}>
                     <a href="/roadmap">Roadmap</a>
                   </li>
                   <AccessControls toggleImage={true} />

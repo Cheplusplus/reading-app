@@ -5,6 +5,8 @@ import styles from "./profile.module.css";
 import ResetStatsButton from "../components/ResetStatsButton/ResetStatsButton";
 import { handleResetStats } from "../lib/handleResetStats";
 import Background from "../components/Background/Background";
+import DeleteProfileButton from "../components/DeleteProfileButton/DeleteProfileButton";
+import { deleteProfile } from "../lib/deleteProfile";
 
 const page = async () => {
   const user: User | null = await getUser();
@@ -13,9 +15,10 @@ const page = async () => {
     <>
       <Background />
       <div className={styles.profile_page}>
-        <h2 className={styles.total}>Total Completed: {user.stats.length}</h2>
+        <h2 className={styles.total}>Total Completed: {user.stats?.length}</h2>
         <ResultsLineChart user={user} />
         <ResetStatsButton user={user} handleReset={handleResetStats} />
+        <DeleteProfileButton user={user} deleteProfile={deleteProfile} />
       </div>
     </>
   );

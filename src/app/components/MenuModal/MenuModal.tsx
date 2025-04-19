@@ -25,6 +25,9 @@ const MenuModal = ({ state, setState }: MenuModalProps) => {
             <a href="/">Home</a>
           </li>
           <li className={styles.li}>
+            <a href="/reading-app">Read</a>
+          </li>
+          <li className={styles.li}>
             <a href="/roadmap">Roadmap</a>
           </li>
           <AccessControls toggleImage={false} />
