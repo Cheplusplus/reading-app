@@ -114,36 +114,37 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
             Start Reading
           </button>
         )}
-
-        <label className={`${styles.labl} ${styles.control}`}>
-          Reading Speed (WPM):
-          <input
-            className={styles.inpt}
-            value={wordsPerMinute}
-            onInput={(e) => {
-              const value = Number.parseInt(e.currentTarget.value);
-              if (Number.isNaN(value)) {
-                setWPM(0);
-                return;
-              }
-              setWPM(value);
-            }}
-          ></input>
-        </label>
-
-        <label className={`${styles.labl} ${styles.control}`}>
-          Difficulty:
-          <select
-            className={styles.inpt2}
-            onChange={(e) => {
-              if (e.target.value === "beginner" || e.target.value === "intermediate" || e.target.value === "expert") setDifficulty(e.target.value);
-            }}
-          >
-            <option value={"beginner"}>Beginner</option>
-            <option value={"intermediate"}>Intermediate</option>
-            <option value={"expert"}>Expert</option>
-          </select>
-        </label>
+        {piece.length > 1 ? (
+          <label className={`${styles.labl} ${styles.control}`}>
+            Reading Speed (WPM):
+            <input
+              className={styles.inpt}
+              value={wordsPerMinute}
+              onInput={(e) => {
+                const value = Number.parseInt(e.currentTarget.value);
+                if (Number.isNaN(value)) {
+                  setWPM(0);
+                  return;
+                }
+                setWPM(value);
+              }}
+            ></input>
+          </label>
+        ) : (
+          <label className={`${styles.labl} ${styles.control}`}>
+            Difficulty:
+            <select
+              className={styles.inpt2}
+              onChange={(e) => {
+                if (e.target.value === "beginner" || e.target.value === "intermediate" || e.target.value === "expert") setDifficulty(e.target.value);
+              }}
+            >
+              <option value={"beginner"}>Beginner</option>
+              <option value={"intermediate"}>Intermediate</option>
+              <option value={"expert"}>Expert</option>
+            </select>
+          </label>
+        )}
       </div>
     </div>
   );
