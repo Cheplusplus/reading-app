@@ -1,0 +1,18 @@
+.btn {
+  width: clamp(150px, 10vw, 10vw);
+  height: clamp(50px, 3vw, 70vw);
+  background-color: red;
+  cursor: pointer;
+  font-size: clamp(0.2rem, 2vw + 0.2rem, 1.5rem);
+}
+
+.btn:hover {
+  background-color: rgb(193, 15, 15);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 960px;
+}
