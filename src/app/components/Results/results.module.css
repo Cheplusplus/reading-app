@@ -63,6 +63,7 @@
   margin: 1rem;
   border-radius: var(--border-rad);
   width: -webkit-fill-available;
+  width: -moz-available;
 }
 
 .user_answer {
