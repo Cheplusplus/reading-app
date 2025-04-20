@@ -25,14 +25,14 @@ const MenuModal = ({ state, setState }: MenuModalProps) => {
           <li className={styles.li}>
             <a href="/">Home</a>
           </li>
-          <li className={styles.li}>
+          <li className={styles.li} onClick={() => setState(false)}>
             <Link href="/reading-app">Read</Link>
           </li>
           <li className={styles.li}>
             <a href="/roadmap">Roadmap</a>
           </li>
           <AccessControls toggleImage={false} />
-          <li className={styles.li}>
+          <li className={styles.li} onClick={() => setState(false)}>
             <Link href="/profile">Profile</Link>
           </li>
         </ul>
