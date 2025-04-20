@@ -8,12 +8,12 @@ type ShowChallengeModalProps = {
 const ShowChallengeModal = ({ challenge }: ShowChallengeModalProps) => {
   const [state, setState] = useState(false);
   return (
-    <div>
-      <button className={styles.btn} onClick={() => setState(true)}>
+    <div className={styles.modal_container}>
+      <button className={!state ? styles.btn : `${styles.btn} ${styles.hide}`} onClick={() => setState(true)}>
         View Challenge
       </button>
       <div className={state ? styles.reading_piece_container : "hidden"}>
-        <button onClick={() => setState(false)} className="btn_img">
+        <button onClick={() => setState(false)} className={`${styles.close_btn} btn_img`}>
           <span className="material-symbols-outlined">close</span>
         </button>
         <p>{challenge.readingPiece}</p>

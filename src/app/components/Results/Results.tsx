@@ -2,6 +2,7 @@ import styles from "./results.module.css";
 import styles2 from "../../page.module.css";
 import { getUserAverages } from "../ResultsLineChart/getUserAverages";
 import ResultsLineChart from "../ResultsLineChart/ResultsLineChart";
+import ShowChallengeModal from "../ShowChallengeModal/ShowChallengeModal";
 
 type ResultsProps = {
   results: Stats;
@@ -36,6 +37,7 @@ const Results = ({ results, user, challenge, userAnswers }: ResultsProps) => {
           <a href="/reading-app">
             <button className={styles2.start_btn}>Play Again</button>
           </a>
+          <ShowChallengeModal challenge={challenge} />
         </div>
 
         <div className={styles.info_container}>
