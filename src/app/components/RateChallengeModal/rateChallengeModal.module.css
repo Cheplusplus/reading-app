@@ -5,6 +5,8 @@
 .stars_container {
   display: flex;
   justify-content: space-evenly;
+  font-size: larger;
+  width: 100%;
 }
 
 .btn {
@@ -15,4 +17,8 @@
   border-radius: 15px;
   cursor: pointer;
   margin: 1rem 0;
+}
+
+.star {
+  font-size: clamp(50px, 1.5vw, 70vw);
 }
