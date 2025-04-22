@@ -9,6 +9,7 @@ import ToggleThemeButton from "./components/ToogleTheme/ToggleThemeButton";
 import MenuButton from "./components/MenuButton/MenuButton";
 import Footer from "./components/Footer/Footer";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   title: "ZapRead | Interactive Reading Comprehension",
@@ -74,7 +75,10 @@ export default function RootLayout({
               </nav>
             </header>
 
-            <main className={styles.main}>{children}</main>
+            <main className={styles.main}>
+              {children}
+              <Analytics />
+            </main>
           </ThemeProvider>
           <Footer />
         </body>
