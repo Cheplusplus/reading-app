@@ -1,13 +1,20 @@
 "use client";
-import { useState } from "react";
+import { startTransition, useOptimistic, useState } from "react";
 import Modal from "../Modal/Modal";
 import "material-symbols/outlined.css";
 import styles from "./rateChallengeModal.module.css";
 
 const RateChallengeModal = () => {
   const [rating, setRating] = useState(0);
-  const [submitted, setSubmitted] = useState(false);
-
+  const [submitted, setSubmitted] = useOptimistic(false);
+  const handleSubmit = () => {
+    if (rating < 4) return;
+    startTransition(() => {
+      setSubmitted(!submitted);
+    });
+    try {
+    } catch (error) {}
+  };
   return (
     <Modal buttonContent="Rate Challenge">
       {submitted ? (
@@ -21,12 +28,7 @@ const RateChallengeModal = () => {
               </button>
             ))}
           </div>
-          <button
-            className={styles.btn}
-            onClick={() => {
-              setSubmitted(true);
-            }}
-          >
+          <button className={styles.btn} onClick={() => handleSubmit}>
             Submit
           </button>
         </>

@@ -30,3 +30,11 @@ model Stats {
   user        User @relation(fields: [userID], references: [id])
 }
 
+model Challenge {
+  id            Int @id @default(autoincrement())
+  piece         String
+  questions     String[]
+  answers       String[]
+  correct       Int[]
+  rating        Int
+}
