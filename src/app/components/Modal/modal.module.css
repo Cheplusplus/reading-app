@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  width: 100%;
+  /* position: absolute; */
 }
 
 .hide {
@@ -33,7 +32,6 @@
   background-color: green;
   border-radius: 15px;
   cursor: pointer;
-  margin-bottom: 1rem;
 }
 
 .close_btn {
@@ -43,5 +41,11 @@
 @media (max-width: 960px) {
   .reading_piece_container {
     top: 0;
+  }
+
+  .container {
+    left: 0;
+    width: 100%;
+    margin: 0;
   }
 }

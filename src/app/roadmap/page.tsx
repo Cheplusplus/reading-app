@@ -58,7 +58,7 @@ const milestones = [
   {
     title: "Store Highest Rated Challenges",
     description: "Rate challenges and persist a list of top-rated challenges.",
-    completed: false,
+    completed: true,
   },
   {
     title: "More Games with Your Friends",
