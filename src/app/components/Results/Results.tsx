@@ -35,9 +35,8 @@ const Results = ({ results, user, challenge, userAnswers }: ResultsProps) => {
     <>
       <div className={styles.page_container}>
         <div className={styles.playagain_container}>
-          <a href="/reading-app">
-            <button className={styles2.start_btn}>Play Again</button>
-          </a>
+          <button className={styles2.start_btn}>Play Again</button>
+
           <ShowChallengeModal challenge={challenge} />
           <RateChallengeModal challenge={challenge} />
         </div>
