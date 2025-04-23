@@ -39,7 +39,7 @@ const Results = ({ results, user, challenge, userAnswers }: ResultsProps) => {
             <button className={styles2.start_btn}>Play Again</button>
           </a>
           <ShowChallengeModal challenge={challenge} />
-          <RateChallengeModal />
+          <RateChallengeModal challenge={challenge} />
         </div>
 
         <div className={styles.info_container}>
