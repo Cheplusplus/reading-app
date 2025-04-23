@@ -3,6 +3,7 @@ import styles2 from "../../page.module.css";
 import { getUserAverages } from "../ResultsLineChart/getUserAverages";
 import ResultsLineChart from "../ResultsLineChart/ResultsLineChart";
 import ShowChallengeModal from "../ShowChallengeModal/ShowChallengeModal";
+import RateChallengeModal from "../RateChallengeModal/RateChallengeModal";
 
 type ResultsProps = {
   results: Stats;
@@ -38,6 +39,7 @@ const Results = ({ results, user, challenge, userAnswers }: ResultsProps) => {
             <button className={styles2.start_btn}>Play Again</button>
           </a>
           <ShowChallengeModal challenge={challenge} />
+          <RateChallengeModal challenge={challenge} />
         </div>
 
         <div className={styles.info_container}>

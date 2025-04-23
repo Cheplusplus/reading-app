@@ -24,7 +24,7 @@ export const metadata = {
     siteName: "ZapRead",
     images: [
       {
-        url: "https://zapread.online/_next/static/media/open-book-with-brain-emerging-from-the-pages.d942a82a.svg", // Replace with your OG image
+        url: "https://zapread.online/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fzapread_bg.96121e63.png&w=3840&q=100", // Replace with your OG image
         width: 1200,
         height: 630,
         alt: "ZapRead preview",
@@ -37,7 +37,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "ZapRead",
     description: "Challenge your reading skills with dynamic quizzes based on real-world stories.",
-    images: ["https://zapread.online/_next/static/media/open-book-with-brain-emerging-from-the-pages.d942a82a.svg"], // Replace with your image
+    images: ["https://zapread.online/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fzapread_bg.96121e63.png&w=3840&q=100"], // Replace with your image
     creator: "Che Overmeyer", // Optional
   },
   metadataBase: new URL("https://zapread.online"),

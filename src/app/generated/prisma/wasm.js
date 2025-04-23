@@ -130,6 +130,15 @@ exports.Prisma.StatsScalarFieldEnum = {
   userID: 'userID'
 };
 
+exports.Prisma.ChallengeScalarFieldEnum = {
+  id: 'id',
+  piece: 'piece',
+  questions: 'questions',
+  answers: 'answers',
+  correct: 'correct',
+  rating: 'rating'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -148,7 +157,8 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Stats: 'Stats'
+  Stats: 'Stats',
+  Challenge: 'Challenge'
 };
 
 /**
