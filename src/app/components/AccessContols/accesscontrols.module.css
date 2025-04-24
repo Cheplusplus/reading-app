@@ -1,6 +1,6 @@
 .img {
   border-radius: 50%;
-  width: 20%;
+  width: clamp(35px, 2vw + 1px, 40px);
   margin: 0 1vw;
 }
 

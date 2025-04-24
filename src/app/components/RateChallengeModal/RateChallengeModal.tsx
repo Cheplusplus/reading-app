@@ -13,7 +13,10 @@ const RateChallengeModal = ({ challenge }: RateChallengeModalProps) => {
   const [submitted, setSubmitted] = useState(false);
   const [optimisticSubmitted, setOptimisticSubmitted] = useOptimistic(submitted);
   const handleSubmit = () => {
-    if (rating < 4) return;
+    if (rating < 4) {
+      setSubmitted(true);
+      return;
+    }
     startTransition(() => {
       setOptimisticSubmitted(true);
     });

@@ -6,6 +6,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2rem;
+  justify-content: flex-end;
 }
 
 .info {
@@ -63,25 +65,20 @@
 .result_container {
   display: flex;
   flex-direction: column;
-  padding: 0 1rem;
-  margin-top: 2rem;
   background-color: var(--second-surface);
-
   padding: 1rem;
-  margin: 1rem;
   border-radius: var(--border-rad);
   width: -webkit-fill-available;
   width: -moz-available;
 }
 
 .user_answer {
-  border: solid var(--user-answer) 5px;
+  border: solid var(--user-answer) 3px !important;
 }
 
 .playagain_container {
   display: flex;
   align-items: center;
-  margin: 1vw;
   z-index: 0;
   justify-content: space-around;
   flex-wrap: wrap;
