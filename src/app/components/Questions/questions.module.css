@@ -26,6 +26,14 @@
   cursor: pointer;
   max-width: 70%;
   margin: auto;
+  border-width: 1px 2px;
+}
+
+.answer_container:first-child {
+  border-width: 2px 2px 1px 2px;
+}
+.answer_container:last-child {
+  border-width: 1px 2px 2px 2px;
 }
 
 .center {
