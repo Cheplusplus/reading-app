@@ -29,9 +29,15 @@
   font-size: clamp(1rem, 0.7vw + 0.5rem, 2.5rem);
   width: clamp(150px, 10vw, 10vw);
   height: clamp(50px, 3vw, 70vw);
-  background-color: green;
+  background-color: var(--accent-inverted);
+  color: var(--text-inverted);
   border-radius: 15px;
   cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--accent);
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 2));
 }
 
 .close_btn {

@@ -62,7 +62,7 @@
 }
 
 .milestone-icon.complete {
-  color: #22c55e; /* green-500 */
+  color: #22c55e; /* var(--accent-inverted)-500 */
 }
 
 .milestone-icon.incomplete {

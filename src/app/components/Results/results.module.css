@@ -28,7 +28,7 @@
 }
 
 .correct_answer {
-  background-color: green;
+  background-color: var(--accent);
 }
 
 .question {

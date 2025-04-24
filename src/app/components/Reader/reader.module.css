@@ -11,7 +11,7 @@
   font-size: clamp(1rem, 2vw + 0.5rem, 2.5rem);
 }
 .btn:hover {
-  background-color: lightgreen;
+  background-color: var(--accent-inverted);
 }
 
 .labl {
