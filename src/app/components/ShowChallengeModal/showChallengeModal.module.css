@@ -28,7 +28,7 @@
   font-size: clamp(1rem, 0.7vw + 0.5rem, 2.5rem);
   width: clamp(150px, 10vw, 10vw);
   height: clamp(50px, 3vw, 70vw);
-  background-color: green;
+  background-color: var(--accent-inverted);
   border-radius: 15px;
   cursor: pointer;
   margin-bottom: 1rem;

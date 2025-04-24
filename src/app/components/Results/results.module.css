@@ -28,7 +28,7 @@
 }
 
 .correct_answer {
-  background-color: green;
+  background-color: var(--accent);
 }
 
 .question {
@@ -51,6 +51,13 @@
   margin-top: 0.5em;
   width: 100%;
   margin: auto;
+  border-width: 1px 2px;
+}
+.answer_container:first-child {
+  border-width: 2px 2px 1px 2px;
+}
+.answer_container:last-child {
+  border-width: 1px 2px 2px 2px;
 }
 
 .result_container {
@@ -59,6 +66,7 @@
   padding: 0 1rem;
   margin-top: 2rem;
   background-color: var(--second-surface);
+
   padding: 1rem;
   margin: 1rem;
   border-radius: var(--border-rad);
@@ -67,7 +75,7 @@
 }
 
 .user_answer {
-  border: solid #bd1717 5px;
+  border: solid var(--user-answer) 5px;
 }
 
 .playagain_container {

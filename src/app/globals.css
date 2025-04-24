@@ -13,9 +13,11 @@
   --surface: #dedede;
   --second-surface: #f0f0f0;
   --accent: #85a8dd;
+  --accent-inverted: #0c2137;
   --title: #0052cc;
   --text-muted: #3d3d3d;
   --text-inverted: #eaeaea;
+  --user-answer: #2b8a38;
 
   /* Shadows */
 
@@ -36,6 +38,7 @@
   --surface: #1a1a1a;
   --second-surface: #333333;
   --accent: #0c2137;
+  --accent-inverted: #85a8dd;
   --title: #66b3ff;
   --text-muted: #c3c3c3;
   --text-inverted: #000000;
