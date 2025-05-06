@@ -27,6 +27,7 @@ const Results = ({ results, user, challenge, userAnswers }: ResultsProps) => {
     });
   };
   const classNames = createClassNames();
+  if (!user.stats) user.stats = [];
   user.stats.push(results);
   const { userSpeeds, userScores } = getUserAverages(user);
   const avgScoreAtCurrentSpeed = Math.round(userScores[userSpeeds.indexOf(results.speed)]);
