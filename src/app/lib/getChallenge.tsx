@@ -135,7 +135,7 @@ export const getChallenge = async (difficulty: "beginner" | "intermediate" | "ex
 
     console.log("Getting a new challenge from ChatGPT");
     const completion = openai.chat.completions.create({
-      model: "o3-mini-2025-01-31",
+      model: "gpt-4o-mini",
       store: true,
       messages: [
         {
