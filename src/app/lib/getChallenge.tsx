@@ -135,13 +135,13 @@ export const getChallenge = async (difficulty: "beginner" | "intermediate" | "ex
 
     console.log("Getting a new challenge from ChatGPT");
     const completion = openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "o3-mini-2025-01-31",
       store: true,
       messages: [
         {
           role: "system",
           content:
-            "You are a JSON-generating assistant designed to output high-quality educational reading comprehension tasks. Always format your output as a valid JSON object, with an accurate match between questions, answers, and the correctAnswers index. Always randomize the index of the correct answer in each question.",
+            "You are a JSON-generating assistant designed to output high-quality educational reading comprehension tasks. You are to find paragraphs in real books and websites and use those rather than making up your own. Always format your output as a valid JSON object, with an accurate match between questions, answers, and the correctAnswers index. Always randomize the index of the correct answer in each question.",
         },
         {
           role: "user",
@@ -155,9 +155,9 @@ export const getChallenge = async (difficulty: "beginner" | "intermediate" | "ex
                       }
                       Task:
                           - The student you are preparing work for today reads at a ${difficulty} level
-                          - Write a high-quality story based on true facts (~500 words) in the genre: ${genre}
+                          - Find a high quality paragraph from a real book (~500 words) in the genre: ${genre}. 
                           - Create 5 to 8 thoughtful multiple-choice questions based only on the content of the story.
-                          - Each question must have 4 possible answers, only one of which is correct.
+                          - Each question must have 4 possible answers, only one of which is correct, ensure none of the other answers could possibly be correct.
                           - Ensure the index of each correct answer in the 'answers' array matches the corresponding number in the 'correctAnswers' array.
                           - Randomize the position of the correct answer in each answers array — it should not always be index 0.
                           - Avoid using any special characters like '+' for string concatenation.
