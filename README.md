@@ -2,8 +2,6 @@
 
 **ZapRead** is an AI-powered reading comprehension app that transforms passive reading into an interactive, skill-building experience. From academic papers to programming docs, ZapRead helps users improve their understanding with challenges tailored by AI — all in a responsive, distraction-free interface.
 
----
-
 ## 🚀 Features
 
 - 🤖 AI-generated reading challenges
@@ -15,8 +13,6 @@
 - 🛠️ Quality-of-life features in development
 - 👀 Reading metrics and performance tracking (coming soon)
 
----
-
 ## 🛠️ Tech Stack
 
 - **Frontend:** React
@@ -26,17 +22,14 @@
 - **Auth:** Auth0
 - **Hosting:** Vercel
 
----
-
 ## 🧪 Running Locally
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/Cheplusplus/reading-app
    cd reading-app
    ```
-
-````
 
 2. **Install dependencies:**
 
@@ -64,27 +57,19 @@
    npm run dev
    ```
 
----
-
 ## 🤝 Contributing
 
 We welcome contributions from developers, designers, educators, and curious minds!
 
 ### How to contribute:
 
-* Fork the repo and create your branch from `main`
-* Follow our code style and naming conventions
-* Submit a pull request with a clear description of the changes
+- Fork the repo and create your branch from `main`
+- Follow our code style and naming conventions
+- Submit a pull request with a clear description of the changes
 
 If you're unsure where to start, check out the [open issues](https://github.com/yourusername/zapread/issues) labeled `good first issue`.
-
----
 
 ## 📩 Contact
 
 Created and maintained by \ ChePlusPlus
 📬 [LinkedIn](https://www.linkedin.com/in/che-overmeyer-1632a394/) | 📧 [chephoto@rocketmail.com](mailto:chephoto@rocketmail.com)
-
----
-
-````
