@@ -67,7 +67,7 @@ We welcome contributions from developers, designers, educators, and curious mind
 - Follow our code style and naming conventions
 - Submit a pull request with a clear description of the changes
 
-If you're unsure where to start, check out the [open issues](https://github.com/yourusername/zapread/issues) labeled `good first issue`.
+If you're unsure where to start, check out the [open issues](https://github.com/Cheplusplus/reading-app/issues).
 
 ## 📩 Contact
 
