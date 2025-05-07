@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📚 ZapRead
 
-## Getting Started
+**ZapRead** is an AI-powered reading comprehension app that transforms passive reading into an interactive, skill-building experience. From academic papers to programming docs, ZapRead helps users improve their understanding with challenges tailored by AI — all in a responsive, distraction-free interface.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🤖 AI-generated reading challenges
+- 🎯 Difficulty selection (in progress)
+- 📊 Stats and progress tracking across devices
+- 📱 Fully responsive mobile experience
+- 📚 Academic and technical content support (coming soon)
+- 🧑‍🏫 AI coaching and feedback (coming soon)
+- 🛠️ Quality-of-life features in development
+- 👀 Reading metrics and performance tracking (coming soon)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+- **Frontend:** React
+- **Backend:** Node.js / Next.js
+- **Database:** PostgreSQL / Prisma
+- **AI Services:** OpenAI API
+- **Auth:** Auth0
+- **Hosting:** Vercel
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧪 Running Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Cheplusplus/reading-app
+   cd reading-app
+   ```
 
-## Deploy on Vercel
+````
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Install dependencies:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   npm install
+   ```
+
+3. **Create a `.env` file in the root:**
+
+   ```env
+
+   OPENAI_API_KEY=your-openai-api-key
+   DATABASE_URL=your-postgres-connection-url
+   AUTH0_SECRET='Your-Secret'
+   AUTH0_BASE_URL='http://localhost:3000'
+   AUTH0_ISSUER_BASE_URL='Your-Issuer-Base-URL'
+   AUTH0_CLIENT_ID='Your-Client-ID'
+   AUTH0_CLIENT_SECRET='Your-Client-Secret'
+   AUTH0_SESSION_AUTO_SAVE=false
+   ```
+
+4. **Run the development server:**
+
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions from developers, designers, educators, and curious minds!
+
+### How to contribute:
+
+* Fork the repo and create your branch from `main`
+* Follow our code style and naming conventions
+* Submit a pull request with a clear description of the changes
+
+If you're unsure where to start, check out the [open issues](https://github.com/yourusername/zapread/issues) labeled `good first issue`.
+
+---
+
+## 📩 Contact
+
+Created and maintained by \ ChePlusPlus
+📬 [LinkedIn](https://www.linkedin.com/in/che-overmeyer-1632a394/) | 📧 [chephoto@rocketmail.com](mailto:chephoto@rocketmail.com)
+
+---
+
+````
