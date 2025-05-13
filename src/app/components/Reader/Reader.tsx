@@ -3,6 +3,7 @@ import styles from "./reader.module.css";
 import { useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 import Spinner from "../Spinner/spinner";
+import { Progress } from "@/components/ui/progress";
 
 function splitAtMiddleComma(str: string) {
   // Find all the commas in the string
@@ -49,6 +50,7 @@ type ReaderProps = {
   loading: boolean;
   fetchNewChallenge: (difficulty: "beginner" | "intermediate" | "expert") => Promise<void>;
 };
+
 export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading, fetchNewChallenge }: ReaderProps) {
   const state = useState<number>(0);
   const [difficulty, setDifficulty] = useState<"beginner" | "intermediate" | "expert">("intermediate");
@@ -57,6 +59,7 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
   const maxLineLength: number = 500; // For tuning: MIGHT NEED THIS LATER FOR ADJUSTING FOR SCREEN SIZES
   const lines: string[] = splitParagraphIntoLines(piece, maxLineLength);
   const [hideControls, setHideControls] = useState<boolean>(false);
+  const [progress, setProgress] = useState(0);
 
   /**
    * Set the duration and speed for the current line to scroll across the screen and reset the state for the next line.
@@ -69,7 +72,6 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
     return new Promise<string>((res) => {
       setTimeout(() => {
         res("");
-        setLineNumber(lineNumber + 1);
         console.log(duration);
       }, duration); // The duration the line should scroll for.
     });
@@ -79,9 +81,12 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
    * Start reading the next line after each line is completed.
    */
   const startReading = async () => {
-    while (lineNumber < lines.length) {
+    let currentLine = 0;
+    while (currentLine < lines.length) {
       await readLine();
-      lineNumber += 1;
+      setLineNumber((prev) => prev + 1);
+      currentLine += 1;
+      setProgress((currentLine / lines.length) * 100);
     }
     setPage("questions");
   };
@@ -97,6 +102,7 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
       ) : (
         <p className={styles.line}>{lines[lineNumber]}</p>
       )}
+      <Progress value={progress} className={styles.progress_bar} />
       <div className={hideControls ? styles.hide : styles.controls}>
         {piece.length < 1 ? (
           <button disabled={loading} className={`${styles.btn} ${styles.control}`} onClick={() => fetchNewChallenge(difficulty)}>
