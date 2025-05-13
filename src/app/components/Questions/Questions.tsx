@@ -18,6 +18,7 @@ const Questions = ({ challenge, setUserAnswers, setPage }: QuestionsProps) => {
 
   return (
     <div className={styles.center}>
+      <p className={styles.question_index}>{`${questionIndex + 1} / ${challenge.questions.length}`}</p>
       <p className={styles.question}>{challenge.questions[questionIndex]}</p>
       <div>
         {challenge.answers[questionIndex]?.map((answer, index) => (
