@@ -102,7 +102,7 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
       ) : (
         <p className={styles.line}>{lines[lineNumber]}</p>
       )}
-      <Progress value={progress} className={styles.progress_bar} />
+      {hideControls && <Progress value={progress} className={styles.progress_bar} />}
       <div className={hideControls ? styles.hide : styles.controls}>
         {piece.length < 1 ? (
           <button disabled={loading} className={`${styles.btn} ${styles.control}`} onClick={() => fetchNewChallenge(difficulty)}>
