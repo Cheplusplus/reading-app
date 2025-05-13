@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 import Spinner from "../Spinner/spinner";
 import { Progress } from "@/components/ui/progress";
+import Link from "next/link";
 
 function splitAtMiddleComma(str: string) {
   // Find all the commas in the string
@@ -93,6 +94,14 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
 
   return (
     <div className={styles.center}>
+      {hideControls && (
+        <div className={styles.progress_container}>
+          <a href="/reading-app">
+            <button className={styles.stop_btn}>Go back</button>
+          </a>
+          <Progress value={progress} className={styles.progress_bar} />
+        </div>
+      )}
       {loading ? (
         <div className={styles.loading_container}>
           <Spinner />
@@ -102,7 +111,7 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
       ) : (
         <p className={styles.line}>{lines[lineNumber]}</p>
       )}
-      {hideControls && <Progress value={progress} className={styles.progress_bar} />}
+
       <div className={hideControls ? styles.hide : styles.controls}>
         {piece.length < 1 ? (
           <button disabled={loading} className={`${styles.btn} ${styles.control}`} onClick={() => fetchNewChallenge(difficulty)}>

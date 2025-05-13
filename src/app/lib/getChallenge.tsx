@@ -141,11 +141,11 @@ export const getChallenge = async (difficulty: "beginner" | "intermediate" | "ex
         {
           role: "system",
           content:
-            "You are a JSON-generating assistant designed to output high-quality educational reading comprehension tasks. You are to find paragraphs in real books and websites and use those rather than making up your own. Always format your output as a valid JSON object, with an accurate match between questions, answers, and the correctAnswers index. Always randomize the index of the correct answer in each question.",
+            "You are a JSON-generating assistant designed to output high-quality educational reading comprehension tasks. You are to find paragraphs in real books and websites and use those rather than making up your own as far as possible. Always format your output as a valid JSON object, with an accurate match between questions, answers, and the correctAnswers index. Always randomize the index of the correct answer in each question.",
         },
         {
           role: "user",
-          content: `Act as a content generator for an educational web application on reading comprehension. Generate a JavaScript-compatible object in the following format:
+          content: `You are highly passionate about your job teaching people about all sorts of topics. You don't like to use the same topics over and over so you come up with new and exciting things even if it's a topic you've spoken about before. You always try to be original. Act as a highly skilled content generator, with 30 years of experience, for an educational web application on reading comprehension. Generate a JavaScript-compatible object in the following format:
                       {
                         "id": "1",
                         "readingPiece": "A high quality story",
