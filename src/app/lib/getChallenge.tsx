@@ -91,16 +91,24 @@ const storyGenres = [
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-function rebalanceAnswersIfNeeded(qaObj: Challenge) {
+export const checkIfLooseDistribution = (qaObj: Challenge) => {
   const distribution = [0, 0, 0, 0];
   qaObj.correctAnswers.forEach((i) => distribution[i]++);
+  console.log(distribution);
   const maxAllowed = Math.ceil(qaObj.correctAnswers.length / 2);
   const maxIndexUsed = Math.max(...distribution);
 
   // If distribution is okay, return as-is
-  if (maxIndexUsed < maxAllowed) return qaObj;
+  if (maxIndexUsed < maxAllowed) return true;
+  return false;
+};
 
-  // Otherwise, rebalance the answer positions
+type ShuffledAnswers = {
+  newAnswers: string[][];
+  newCorrectAnswers: number[];
+};
+
+export const shuffleAnswers = (qaObj: Challenge): ShuffledAnswers => {
   const newCorrectAnswers: number[] = [];
   const newAnswers = qaObj.answers.map((options, idx) => {
     const correctIndex = qaObj.correctAnswers[idx];
@@ -119,14 +127,20 @@ function rebalanceAnswersIfNeeded(qaObj: Challenge) {
 
     return shuffled;
   });
+  return { newAnswers, newCorrectAnswers };
+};
 
+export const rebalanceAnswersIfNeeded = (qaObj: Challenge): Challenge => {
+  if (checkIfLooseDistribution(qaObj)) return qaObj;
+  // Otherwise, rebalance the answer positions
+  const { newAnswers, newCorrectAnswers } = shuffleAnswers(qaObj);
   // Return updated object
   return rebalanceAnswersIfNeeded({
     ...qaObj,
     answers: newAnswers,
     correctAnswers: newCorrectAnswers,
   });
-}
+};
 
 export const getChallenge = async (difficulty: "beginner" | "intermediate" | "expert"): Promise<Challenge | undefined> => {
   "use server";
