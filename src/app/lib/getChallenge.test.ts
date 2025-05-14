@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 import "@testing-library/jest-dom";
-import { checkIfLooseDistribution, shuffleAnswers } from "./getChallenge";
+import { checkIfLooseDistribution, shuffleAnswers, rebalanceAnswersIfNeeded, getChallenge } from "./getChallenge";
 
 const challengeTightDistribution: Challenge = {
   id: "1",
@@ -45,4 +45,26 @@ describe("shuffleAnswers", () => {
     expect(challengeLooseDistribution.correctAnswers).not.toEqual(shuffledAnswers.newCorrectAnswers);
     expect(challengeLooseDistribution.answers).not.toEqual(shuffledAnswers.newAnswers);
   });
+});
+
+describe("rebalanceAnswersIfNeeded", () => {
+  it("Checks if the correct answers are loosely distributed and shuffles them if not and then returns them when they are.", () => {
+    const newChallenge = rebalanceAnswersIfNeeded(challengeTightDistribution);
+    const sameChallenge = rebalanceAnswersIfNeeded(challengeLooseDistribution);
+
+    expect(challengeTightDistribution).not.toEqual(newChallenge);
+    expect(challengeLooseDistribution).toEqual(sameChallenge);
+  });
+});
+
+const timeoutMS = 30000;
+describe("getChallenge", () => {
+  it(
+    "Fetches a new challenge from OpenAI API",
+    async () => {
+      const challenge = await getChallenge("beginner");
+      expect(challenge instanceof Object).toBe(true);
+    },
+    timeoutMS
+  );
 });

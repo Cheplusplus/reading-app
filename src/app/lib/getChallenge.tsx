@@ -94,7 +94,6 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 export const checkIfLooseDistribution = (qaObj: Challenge) => {
   const distribution = [0, 0, 0, 0];
   qaObj.correctAnswers.forEach((i) => distribution[i]++);
-  console.log(distribution);
   const maxAllowed = Math.ceil(qaObj.correctAnswers.length / 2);
   const maxIndexUsed = Math.max(...distribution);
 
