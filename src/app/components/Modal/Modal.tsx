@@ -11,11 +11,11 @@ const Modal = ({ children, buttonContent }: ModalProps) => {
   const [state, setState] = useState(false);
 
   return (
-    <div className={styles.modal_container}>
+    <div data-testid="modal-container" className={styles.modal_container}>
       <button className={!state ? styles.btn : `${styles.btn} ${styles.hide}`} onClick={() => setState(true)}>
         {buttonContent}
       </button>
-      <div className={state ? styles.container : "hidden"}>
+      <div data-testid="modal" className={state ? styles.container : styles.hide}>
         <button onClick={() => setState(false)} className={`${styles.close_btn} btn_img`}>
           <span className="material-symbols-outlined">close</span>
         </button>
