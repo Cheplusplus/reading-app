@@ -17,7 +17,7 @@ describe("MenuButton", () => {
     const menuButton = screen.getByRole("button", { name: "menu" });
     fireEvent.click(menuButton);
     const MenuModal = screen.getByTestId("container");
-
+    expect(menuButton.textContent).toBe("menu");
     expect(MenuModal).toBeVisible();
   });
 });
