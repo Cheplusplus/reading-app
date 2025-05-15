@@ -5,12 +5,14 @@ import AccessControls from "../AccessContols/AccessControls";
 import "material-symbols/outlined.css";
 import { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 type MenuModalProps = {
   state: boolean;
   setState: Dispatch<SetStateAction<boolean>>;
 };
 const MenuModal = ({ state, setState }: MenuModalProps) => {
+  const { setTheme, theme } = useTheme();
   return (
     <div className={state ? styles.menu_container : "hidden"}>
       <button onClick={() => setState(false)} className="btn_img">
@@ -20,7 +22,7 @@ const MenuModal = ({ state, setState }: MenuModalProps) => {
       <nav>
         <ul className={styles.nav_list}>
           <li className={styles.li}>
-            <ToggleThemeButton />
+            <ToggleThemeButton setTheme={setTheme} theme={theme} />
           </li>
           <li className={styles.li}>
             <a href="/">Home</a>
