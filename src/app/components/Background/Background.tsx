@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Books from "../../../../public/zapread_bg.png";
-import styles from "./background.module.css";
 
 export default function Background() {
   return (
     <Image
+      data-testid="background"
       alt="Muted Grey Books"
       src={Books}
       placeholder="blur"

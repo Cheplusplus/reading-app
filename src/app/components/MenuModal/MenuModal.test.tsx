@@ -1,4 +1,4 @@
-import { render, screen, act, renderHook, fireEvent } from "@testing-library/react";
+import { render, screen, renderHook, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import MenuModal from "./MenuModal";
 import { useState } from "react";

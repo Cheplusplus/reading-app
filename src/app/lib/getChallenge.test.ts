@@ -32,22 +32,18 @@ const challengeLooseDistribution: Challenge = {
   correctAnswers: [0, 1, 2, 3, 3],
 };
 
-describe("checkIfLooseDistribution", () => {
+describe("getChallenge.tsx", () => {
   it("Checks if a challenges correct answers are loosely distributed", () => {
     expect(checkIfLooseDistribution(challengeTightDistribution)).toBe(false);
     expect(checkIfLooseDistribution(challengeLooseDistribution)).toBe(true);
   });
-});
 
-describe("shuffleAnswers", () => {
   it("Shuffles the answers to hopefully result in a looser distribution of correct answers", () => {
     const shuffledAnswers = shuffleAnswers(challengeLooseDistribution);
     expect(challengeLooseDistribution.correctAnswers).not.toEqual(shuffledAnswers.newCorrectAnswers);
     expect(challengeLooseDistribution.answers).not.toEqual(shuffledAnswers.newAnswers);
   });
-});
 
-describe("rebalanceAnswersIfNeeded", () => {
   it("Checks if the correct answers are loosely distributed and shuffles them if not and then returns them when they are.", () => {
     const newChallenge = rebalanceAnswersIfNeeded(challengeTightDistribution);
     const sameChallenge = rebalanceAnswersIfNeeded(challengeLooseDistribution);
@@ -55,10 +51,9 @@ describe("rebalanceAnswersIfNeeded", () => {
     expect(challengeTightDistribution).not.toEqual(newChallenge);
     expect(challengeLooseDistribution).toEqual(sameChallenge);
   });
-});
 
-const timeoutMS = 30000;
-describe("getChallenge", () => {
+  const timeoutMS = 30000;
+
   it(
     "Fetches a new challenge from OpenAI API",
     async () => {
