@@ -9,6 +9,7 @@ import ToggleThemeButton from "./components/ToogleTheme/ToggleThemeButton";
 import MenuButton from "./components/MenuButton/MenuButton";
 import Footer from "./components/Footer/Footer";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 export const metadata = {
   title: "ZapRead | Interactive Reading Comprehension",
@@ -47,6 +48,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { setTheme, theme } = useTheme();
   return (
     <html lang="en" suppressHydrationWarning>
       <UserProvider>
@@ -58,7 +60,7 @@ export default function RootLayout({
                 <MenuButton />
                 <ul className={styles.nav_list}>
                   <li className={styles.li}>
-                    <ToggleThemeButton />
+                    <ToggleThemeButton setTheme={setTheme} theme={theme} />
                   </li>
                   <li className={styles.li}>
                     <a href="/">Home</a>

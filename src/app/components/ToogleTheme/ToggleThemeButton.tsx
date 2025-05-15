@@ -1,16 +1,18 @@
 "use client";
 import styles from "./toggleThemeButton.module.css";
-import { useTheme } from "next-themes";
 import "material-symbols/outlined.css";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
-const ToggleThemeButton = () => {
-  const { setTheme, theme } = useTheme();
+type ToggleThemeButtonProps = {
+  setTheme: Dispatch<SetStateAction<string>>;
+  theme: string | undefined;
+};
+const ToggleThemeButton = ({ setTheme, theme }: ToggleThemeButtonProps) => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
-  if (!mounted) return null; // Avoid SSR issues
+  if (!mounted) return <></>; // Avoid SSR issues
 
   return (
     <div className={styles.container}>
