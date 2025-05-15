@@ -57,7 +57,7 @@ export default function RootLayout({
             <header tabIndex={-1} className={styles.header}>
               <Image src={logo} alt="Logo" className={styles.logo} />
               <nav>
-                <MenuButton />
+                <MenuButton setTheme={setTheme} theme={theme} />
                 <ul className={styles.nav_list}>
                   <li className={styles.li}>
                     <ToggleThemeButton setTheme={setTheme} theme={theme} />

@@ -1,10 +1,14 @@
 "use client";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import MenuModal from "../MenuModal/MenuModal";
 import styles from "./menu.module.css";
 import "material-symbols/outlined.css";
 
-const Menu = () => {
+type MenuProps = {
+  setTheme: Dispatch<SetStateAction<string>>;
+  theme: string | undefined;
+};
+const Menu = ({ setTheme, theme }: MenuProps) => {
   const [state, setState] = useState(false);
   return (
     <div className={styles.menu}>
@@ -12,7 +16,7 @@ const Menu = () => {
         <span className="material-symbols-outlined">menu</span>
       </button>
 
-      <MenuModal state={state} setState={setState} />
+      <MenuModal state={state} setState={setState} setTheme={setTheme} theme={theme} />
     </div>
   );
 };
