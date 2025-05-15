@@ -1,20 +1,40 @@
-import "@testing-library/jest-dom";
+// MyComponent.test.tsx
+import { render, fireEvent } from "@testing-library/react";
+import { ThemeProvider } from "next-themes";
 import ToggleThemeButton from "./ToggleThemeButton";
-import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 
-describe("ToggleThemeButton", () => {
-  it("Toggles the data-theme property of the body when pressed", () => {
-    let theme = "dark";
-    const setTheme = () => {
-      theme = theme === "light" ? "dark" : "light";
-    };
-    const { rerender } = render(<ToggleThemeButton setTheme={setTheme} theme={theme} />);
+beforeAll(() => {
+  Object.defineProperty(window, "matchMedia", {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: jest.fn(), // deprecated
+      removeListener: jest.fn(), // deprecated
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+    })),
+  });
+});
 
-    const button = screen.getByRole("button");
-    button.click();
-    expect(theme).toBe("light");
-    rerender(<ToggleThemeButton setTheme={setTheme} theme={theme} />);
-    button.click();
-    expect(theme).toBe("dark");
+describe("MyComponent", () => {
+  it("updates theme when toggled", () => {
+    const { getByRole } = render(
+      <ThemeProvider attribute="class">
+        <ToggleThemeButton />
+      </ThemeProvider>
+    );
+
+    // Example: Assume your component has a button that toggles the theme
+    const button = getByRole("button");
+
+    // Click to change the theme
+    fireEvent.click(button);
+    expect(document.documentElement).toHaveClass("light"); // if switching to dark
+    fireEvent.click(button);
+    expect(document.documentElement).toHaveClass("dark"); // if switching to dark
   });
 });
