@@ -15,8 +15,8 @@ jest.mock("@auth0/nextjs-auth0/client", () => ({
 describe("MenuModal", () => {
   it("Has all the navigation links and buttons", () => {
     const { result } = renderHook(() => useState(true));
-
-    const { rerender } = render(<MenuModal state={result.current[0]} setState={result.current[1]} />);
+    const [state, setState] = result.current;
+    const { rerender } = render(<MenuModal state={state} setState={setState} />);
     const container = screen.getByTestId("container");
     const theme = screen.getByTestId("theme");
     const home = screen.getByTestId("home");
@@ -38,8 +38,8 @@ describe("MenuModal", () => {
     expect(profile).toBeVisible();
 
     fireEvent.click(button);
-    rerender(<MenuModal state={result.current[0]} setState={result.current[1]} />);
-    expect(result.current[0]).toBe(false);
+    rerender(<MenuModal state={state} setState={setState} />);
+    expect(state).toBe(false);
     expect(container.classList.contains("hidden")).toBe(true);
   });
 });

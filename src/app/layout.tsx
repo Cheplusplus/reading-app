@@ -9,6 +9,7 @@ import ToggleThemeButton from "./components/ToogleTheme/ToggleThemeButton";
 import MenuButton from "./components/MenuButton/MenuButton";
 import Footer from "./components/Footer/Footer";
 import Link from "next/link";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "ZapRead | Interactive Reading Comprehension",
@@ -73,7 +74,7 @@ export default function RootLayout({
                 </ul>
               </nav>
             </header>
-
+            <Toaster position="bottom-center" />
             <main className={styles.main}>{children}</main>
           </ThemeProvider>
           <Footer />
