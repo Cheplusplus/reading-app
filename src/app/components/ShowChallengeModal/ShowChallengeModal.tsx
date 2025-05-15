@@ -1,12 +1,12 @@
 import Modal from "../Modal/Modal";
 
 type ShowChallengeModalProps = {
-  challenge: Challenge;
+  readingPiece: string;
 };
-const ShowChallengeModal = ({ challenge }: ShowChallengeModalProps) => {
+const ShowChallengeModal = ({ readingPiece }: ShowChallengeModalProps) => {
   return (
     <Modal buttonContent="View Challenge">
-      <p>{challenge.readingPiece}</p>
+      <p>{readingPiece}</p>
     </Modal>
   );
 };

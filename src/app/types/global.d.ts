@@ -12,6 +12,7 @@ declare global {
     email: string;
     username: string;
     stats: Stats[];
+    currentReadingSpeed: number;
   }
 
   interface Stats {

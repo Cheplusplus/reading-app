@@ -6,7 +6,7 @@
 }
 
 .hide {
-  visibility: hidden;
+  display: none;
 }
 
 .container {

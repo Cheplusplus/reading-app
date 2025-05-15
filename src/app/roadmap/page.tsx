@@ -61,6 +61,11 @@ const milestones = [
     completed: true,
   },
   {
+    title: "Progression System",
+    description: "Automaticly increased difficulty as you progress",
+    completed: false,
+  },
+  {
     title: "More Games with Your Friends",
     description: "More unique reading challenges and multiplayer!",
     completed: false,

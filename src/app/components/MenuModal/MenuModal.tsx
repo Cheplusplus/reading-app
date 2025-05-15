@@ -12,7 +12,7 @@ type MenuModalProps = {
 };
 const MenuModal = ({ state, setState }: MenuModalProps) => {
   return (
-    <div className={state ? styles.menu_container : "hidden"}>
+    <div data-testid="container" className={state ? styles.menu_container : "hidden"}>
       <button onClick={() => setState(false)} className="btn_img">
         <span className="material-symbols-outlined">close</span>
       </button>
@@ -23,17 +23,25 @@ const MenuModal = ({ state, setState }: MenuModalProps) => {
             <ToggleThemeButton />
           </li>
           <li className={styles.li}>
-            <a href="/">Home</a>
+            <a href="/" data-testid="home">
+              Home
+            </a>
           </li>
           <li className={styles.li} onClick={() => setState(false)}>
-            <Link href="/reading-app">Read</Link>
+            <Link href="/reading-app" data-testid="read">
+              Read
+            </Link>
           </li>
           <li className={styles.li}>
-            <a href="/roadmap">Roadmap</a>
+            <a href="/roadmap" data-testid="roadmap">
+              Roadmap
+            </a>
           </li>
           <AccessControls toggleImage={false} />
           <li className={styles.li} onClick={() => setState(false)}>
-            <Link href="/profile">Profile</Link>
+            <Link href="/profile" data-testid="profile">
+              Profile
+            </Link>
           </li>
         </ul>
       </nav>
