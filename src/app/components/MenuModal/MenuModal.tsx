@@ -9,10 +9,8 @@ import Link from "next/link";
 type MenuModalProps = {
   state: boolean;
   setState: Dispatch<SetStateAction<boolean>>;
-  setTheme: Dispatch<SetStateAction<string>>;
-  theme: string | undefined;
 };
-const MenuModal = ({ state, setState, setTheme, theme }: MenuModalProps) => {
+const MenuModal = ({ state, setState }: MenuModalProps) => {
   return (
     <div className={state ? styles.menu_container : "hidden"}>
       <button onClick={() => setState(false)} className="btn_img">
@@ -22,7 +20,7 @@ const MenuModal = ({ state, setState, setTheme, theme }: MenuModalProps) => {
       <nav>
         <ul className={styles.nav_list}>
           <li className={styles.li}>
-            <ToggleThemeButton setTheme={setTheme} theme={theme} />
+            <ToggleThemeButton />
           </li>
           <li className={styles.li}>
             <a href="/">Home</a>
