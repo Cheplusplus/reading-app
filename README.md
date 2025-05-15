@@ -21,6 +21,7 @@
 - **AI Services:** OpenAI API
 - **Auth:** Auth0
 - **Hosting:** Vercel
+- **Testing** Jest
 
 ## 🧪 Running Locally
 
@@ -56,6 +57,12 @@
    ```bash
    npm run dev
    ```
+
+## 🐞 Running Tests
+
+```bash
+npm run test
+```
 
 ## 🤝 Contributing
 

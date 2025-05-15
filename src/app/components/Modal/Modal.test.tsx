@@ -1,4 +1,4 @@
-import { render, screen, act } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Modal from "./Modal";
 
@@ -11,9 +11,9 @@ describe("Modal", () => {
     expect(modal_container).toBeInTheDocument();
     expect(buttons[0].textContent).toBe("Test");
     expect(modal.classList.contains("hide")).toBe(true);
-    act(() => buttons[0].click());
+    fireEvent.click(buttons[0]);
     expect(modal.classList.contains("container")).toBe(true);
-    act(() => buttons[1].click());
+    fireEvent.click(buttons[1]);
     expect(modal.classList.contains("hide")).toBe(true);
   });
 });

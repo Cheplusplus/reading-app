@@ -1,19 +1,21 @@
 import prisma from "../lib/prisma";
-import { redirect } from "next/navigation";
 
 export const deleteProfile = async (user: User) => {
   "use server";
+  try {
+    await prisma.stats.deleteMany({
+      where: {
+        userID: user.id,
+      },
+    });
+    await prisma.user.delete({
+      where: {
+        id: user.id,
+      },
+    });
 
-  await prisma.stats.deleteMany({
-    where: {
-      userID: user.id,
-    },
-  });
-  await prisma.user.delete({
-    where: {
-      id: user.id,
-    },
-  });
-
-  redirect("/api/auth/logout");
+    return true;
+  } catch {
+    return false;
+  }
 };

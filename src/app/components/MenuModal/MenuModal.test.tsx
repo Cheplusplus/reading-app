@@ -1,4 +1,4 @@
-import { render, screen, act, renderHook, fireEvent } from "@testing-library/react";
+import { render, screen, renderHook, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import MenuModal from "./MenuModal";
 import { useState } from "react";
@@ -15,7 +15,6 @@ jest.mock("@auth0/nextjs-auth0/client", () => ({
 describe("MenuModal", () => {
   it("Has all the navigation links and buttons", () => {
     const { result } = renderHook(() => useState(true));
-
     const { rerender } = render(<MenuModal state={result.current[0]} setState={result.current[1]} />);
     const container = screen.getByTestId("container");
     const theme = screen.getByTestId("theme");
