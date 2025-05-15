@@ -9,7 +9,7 @@ type AccessControlsProps = {
 const AccessControls = ({ toggleImage }: AccessControlsProps) => {
   const user = useUser();
   return (
-    <li className={styles.li}>
+    <li data-testid="access-controls" className={styles.li}>
       {user.user ? <a href="/api/auth/logout">Logout</a> : <a href="/api/auth/login">Login</a>}
       {user.user && toggleImage ? (
         <Link href="/profile">

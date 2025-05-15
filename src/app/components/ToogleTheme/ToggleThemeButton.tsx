@@ -13,7 +13,7 @@ const ToggleThemeButton = () => {
   if (!mounted) return null; // Avoid SSR issues
 
   return (
-    <div className={styles.container}>
+    <div data-testid="theme" className={styles.container}>
       {theme === "light" ? (
         <button
           className={styles.btn}

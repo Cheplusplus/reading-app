@@ -1,4 +1,3 @@
-// MyComponent.test.tsx
 import { render, fireEvent } from "@testing-library/react";
 import { ThemeProvider } from "next-themes";
 import ToggleThemeButton from "./ToggleThemeButton";
@@ -28,7 +27,6 @@ describe("MyComponent", () => {
       </ThemeProvider>
     );
 
-    // Example: Assume your component has a button that toggles the theme
     const button = getByRole("button");
 
     // Click to change the theme
