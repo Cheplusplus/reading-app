@@ -18,8 +18,10 @@ const Questions = ({ challenge, setUserAnswers, setPage }: QuestionsProps) => {
 
   return (
     <div className={styles.center}>
-      <p className={styles.question_index}>{`${questionIndex + 1} / ${challenge.questions.length}`}</p>
-      <p className={styles.question}>{challenge.questions[questionIndex]}</p>
+      <p className={styles.question_index} data-testid="question-index">{`${questionIndex + 1} / ${challenge.questions.length}`}</p>
+      <p className={styles.question} data-testid="question">
+        {challenge.questions[questionIndex]}
+      </p>
       <div>
         {challenge.answers[questionIndex]?.map((answer, index) => (
           <div
@@ -29,6 +31,7 @@ const Questions = ({ challenge, setUserAnswers, setPage }: QuestionsProps) => {
               setUserAnswers((current) => [...current, index]);
               setQuestionIndex(questionIndex + 1);
             }}
+            data-testid="answers"
           >
             <p className={styles.answer}>
               {index + 1}. {answer}

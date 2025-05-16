@@ -4,7 +4,7 @@ import Modal from "./Modal";
 
 describe("Modal", () => {
   it("Displays a modal element to display child elements", async () => {
-    const { rerender } = render(<Modal buttonContent="Test" />);
+    render(<Modal buttonContent="Test" />);
     const modal_container = screen.getByTestId("modal-container");
     const modal = screen.getByTestId("modal");
     const buttons = screen.getAllByRole("button");
