@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
 import styles from "./page.module.css";
 import AccessControls from "./components/AccessContols/AccessControls";
@@ -76,6 +77,7 @@ export default function RootLayout({
             </header>
             <Toaster position="bottom-center" />
             <main className={styles.main}>{children}</main>
+            <Analytics />
           </ThemeProvider>
           <Footer />
         </body>
