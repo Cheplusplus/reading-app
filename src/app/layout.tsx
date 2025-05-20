@@ -76,8 +76,10 @@ export default function RootLayout({
               </nav>
             </header>
             <Toaster position="bottom-center" />
-            <main className={styles.main}>{children}</main>
-            <Analytics />
+            <main className={styles.main}>
+              {children}
+              <Analytics />
+            </main>
           </ThemeProvider>
           <Footer />
         </body>
