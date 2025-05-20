@@ -14,6 +14,7 @@ const page = async () => {
   if (user === null) redirect("/api/auth/login");
 
   const handleDeleteProfile = async () => {
+    "use server";
     const result = await deleteProfile(user);
     if (result) redirect("/api/auth/logout");
     toast.error("An error occured, Please try again.");
