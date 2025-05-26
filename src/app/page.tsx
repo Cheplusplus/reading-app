@@ -2,6 +2,8 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import Background from "./components/Background/Background";
 
+// Testing Actions Pipeline Remove this later
+
 const page = async () => {
   return (
     <>
