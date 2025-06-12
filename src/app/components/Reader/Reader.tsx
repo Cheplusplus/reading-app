@@ -94,14 +94,6 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
 
   return (
     <div className={styles.center}>
-      {hideControls && (
-        <div className={styles.progress_container}>
-          <a href="/reading-app">
-            <button className={styles.stop_btn}>Go back</button>
-          </a>
-          <Progress value={progress} className={styles.progress_bar} />
-        </div>
-      )}
       {loading ? (
         <div className={styles.loading_container}>
           <Spinner />
@@ -110,6 +102,15 @@ export default function Reader({ piece, setPage, wordsPerMinute, setWPM, loading
         </div>
       ) : (
         <p className={styles.line}>{lines[lineNumber]}</p>
+      )}
+
+      {hideControls && (
+        <div className={styles.progress_container}>
+          <a href="/reading-app">
+            <button className={styles.stop_btn}>Go back</button>
+          </a>
+          <Progress value={progress} className={styles.progress_bar} />
+        </div>
       )}
 
       <div className={hideControls ? styles.hide : styles.controls}>
