@@ -24,6 +24,7 @@
 - **Testing** Jest
 
 ## Folder Structure
+```text
 ├───.github
 │   └───workflows
 ├───prisma
@@ -65,7 +66,7 @@
     ├───components
     │   └───ui
     └───lib
-
+```
 ## 🧪 Running Locally
 
 1. **Clone the repository:**
