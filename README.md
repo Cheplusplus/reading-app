@@ -23,6 +23,49 @@
 - **Hosting:** Vercel
 - **Testing** Jest
 
+## Folder Structure
+├───.github
+│   └───workflows
+├───prisma
+│   └───migrations
+│       ├───20250413205426_initial_database_migration
+│       └───20250423205649_add_challenge_table
+├───public
+└───src
+    ├───app
+    │   ├───api
+    │   │   └───auth
+    │   │       └───[auth0]
+    │   ├───components
+    │   │   ├───AccessContols
+    │   │   ├───Background
+    │   │   ├───DeleteProfileButton
+    │   │   ├───Footer
+    │   │   ├───MenuButton
+    │   │   ├───MenuModal
+    │   │   ├───Modal
+    │   │   ├───Questions
+    │   │   ├───RateChallengeModal
+    │   │   ├───Reader
+    │   │   ├───ReaderPageManager
+    │   │   ├───ResetStatsButton
+    │   │   ├───Results
+    │   │   ├───ResultsLineChart
+    │   │   ├───ShowChallengeModal
+    │   │   ├───Spinner
+    │   │   ├───ThemeProvider
+    │   │   └───ToogleTheme
+    │   ├───hooks
+    │   ├───lib
+    │   ├───privacy-policy
+    │   ├───profile
+    │   ├───reading-app
+    │   ├───roadmap
+    │   └───types
+    ├───components
+    │   └───ui
+    └───lib
+
 ## 🧪 Running Locally
 
 1. **Clone the repository:**
