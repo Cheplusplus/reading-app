@@ -1,7 +1,7 @@
 .line {
   font-size: clamp(1rem, 2vw + 0.5rem, 3rem);
   text-align: center;
-  height: clamp(150px, 10vw + 100px, 500px);
+  height: fit-content;
   color: var(--text-muted);
   padding: 1rem;
   max-width: 960px;
